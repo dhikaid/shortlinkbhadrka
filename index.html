@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <title>Link to Dhika</title>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+  </head>
+
+  <body>
+    <!-- STYLE -->
+    <style>
+      /* tell the container's children to float left: */
+      .float-my-children > * {
+        float: left;
+        margin-right: 5px;
+      }
+
+      /* this is called a clearfix. it makes sure that the container's children floats are cleared, without using extra markup */
+
+      .clearfix {
+        *zoom: 1;
+        /* for IE */
+      }
+
+      .clearfix:before,
+      .clearfix:after {
+        content: " ";
+        display: table;
+      }
+
+      .clearfix:after {
+        clear: both;
+      }
+
+      /* end clearfix*/
+
+      /* BODI */
+
+      body {
+        background: #0a2463;
+        font-family: "Montserrat";
+        margin: 0;
+        padding: 0;
+        color: white;
+      }
+
+      .container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        overflow: inherit;
+        position: relative;
+      }
+
+      @media (max-width: 991.98px) {
+        .container {
+          background: #0a2463 !important;
+          min-height: 100vh !important;
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: center !important;
+          justify-content: center !important;
+          overflow: hidden !important;
+          position: relative !important;
+        }
+      }
+
+      /* KOTAK ME */
+      .kotak-box-1 {
+        background-color: #0e6ba8;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        color: white;
+        border-radius: 10px;
+        font-size: x-large;
+      }
+
+      .kotak-box-2 {
+        background-color: #0a2472;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        color: white;
+        border-radius: 10px;
+      }
+
+      /* CENTER */
+      .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      /* A TAG */
+      a,
+      a::after {
+        text-decoration: none;
+      }
+
+      /* BLOBS */
+      .shape-blob {
+        background: #ed1250;
+        height: 200px;
+        width: 200px;
+        border-radius: 30% 50% 20% 40%;
+        animation: transform 20s ease-in-out infinite both alternate,
+          movement_one 40s ease-in-out infinite both;
+        opacity: 0.7;
+        position: absolute;
+        left: 70%;
+        top: 73%;
+      }
+
+      .shape-blob.one {
+        height: 500px;
+        width: 500px;
+        left: -200px;
+        top: 250px;
+        transform: rotate(-180deg);
+        animation: transform 30s ease-in-out infinite both alternate,
+          movement_two 60s ease-in-out infinite both;
+      }
+
+      .shape-blob.two {
+        height: 350px;
+        width: 350px;
+        left: 500px;
+        top: -150px;
+        transform: rotate(-180deg);
+        animation: transform 30s ease-in-out infinite both alternate,
+          movement_two 60s ease-in-out infinite both;
+      }
+
+      @keyframes transform {
+        0%,
+        100% {
+          border-radius: 33% 67% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        20% {
+          border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+        }
+
+        40% {
+          border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+        }
+
+        60% {
+          border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+        }
+
+        80% {
+          border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+        }
+      }
+
+      @keyframes movement_one {
+        0%,
+        100% {
+          transform: none;
+        }
+
+        50% {
+          transform: translate(50%, 20%) rotateY(10deg) scale(1.2);
+        }
+      }
+
+      @keyframes movement_two {
+        0%,
+        500% {
+          transform: none;
+        }
+
+        50% {
+          transform: translate(50%, 20%) rotate(-200deg) scale(1.2);
+        }
+      }
+
+      .bg-light-2 {
+        background-color: #00072d;
+      }
+
+      .content {
+        z-index: 5;
+      }
+
+      /* MODAL */
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4 !important;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+      }
+
+      .modal-backdrop.show {
+        opacity: 0.5 !important;
+      }
+
+      .modal-open {
+        overflow: inherit !important;
+        padding-right: 1px;
+      }
+
+      .modal-header,
+      .modal-body {
+        background-color: #0e6ba8;
+      }
+    </style>
+
+    <div class="container">
+      <div class="shape-blob"></div>
+      <div class="shape-blob one"></div>
+      <div class="shape-blob two"></div>
+
+      <div class="content">
+        <!-- HEAD -->
+        <div class="text-center">
+          <div class="pt-5">
+            <div class="clearfix float-my-children kotak-box-1 shadow">
+              <div class="img-box">
+                <img
+                  src="https://cdn.discordapp.com/attachments/326726656154796035/1041211063217160263/mypp.png"
+                  class="rounded"
+                  alt=""
+                  width="70"
+                />
+              </div>
+              <div class="text-start">
+                <strong>HI TO ME!</strong>
+                <div>
+                  Bhadrika Aryaputra
+                  <a href="https://oauth.dhikaa.ml/?from=https://dhikaa.ml">
+                    <span
+                      class="badge rounded-pill bg-light-2 text-light placeholder-glow"
+                      >DiAkun <i class="bi bi-check"></i></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTENT -->
+          <!-- WEBSITE -->
+          <div class="pt-5">
+            <a href="https://web.bhadrikais.my.id">
+              <div class="kotak-box-2 shadow">
+                <div class="row justify-content-center">
+                  <strong><i class="bi bi-globe"></i> Website</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- SAWERIA -->
+          <div class="pt-5">
+            <a href="https://saweria.co/bhadrika05">
+              <div class="kotak-box-2 shadow">
+                <div class="row justify-content-center">
+                  <strong><i class="bi bi-currency-dollar"></i> Saweria</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- YT -->
+          <div class="pt-5">
+            <a href="https://youtube.com/bhadrikaaryaputra">
+              <div class="kotak-box-2 shadow">
+                <div class="row justify-content-center">
+                  <strong><i class="bi bi-youtube"></i> YouTube Channel</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- INSTAGRAM -->
+          <div class="pt-5">
+            <a href="https://instagram.com/bhadrika_aryaputra">
+              <div class="kotak-box-2 shadow">
+                <div class="row justify-content-center">
+                  <strong><i class="bi bi-instagram"></i> Instagram</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- TWITCH -->
+          <div class="pt-5">
+            <a href="https://twitch.tv/dhikaid">
+              <div class="kotak-box-2 shadow">
+                <div class="row justify-content-center">
+                  <strong><i class="bi bi-twitch"></i> Twitch TV</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- SHORTLINK US -->
+          <!-- <div class="pt-5">
+            <a onclick="checkus()">
+              <div class="kotak-box-2 shadow">
+                <div class="row justify-content-center">
+                  <strong
+                    ><i class="bi bi-lock"></i> Shortlink US, Token &
+                    Absen</strong
+                  >
+                </div>
+              </div>
+            </a>
+          </div> -->
+          <!-- FAQ -->
+          <!-- <div class="pt-5">
+              <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="kotak-box-2 shadow">
+                  <div class="row justify-content-center">
+                    <strong
+                      ><i class="bi bi-question-lg"></i> Why Dhikaa.ml</strong
+                    >
+                  </div>
+                </div>
+              </a>
+            </div> -->
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div
+              class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+            >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Kenapa harus domain DHIKAA.ML?
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  Saya memilih domain itu dikarenakan
+                  <strong>murah.</strong> Selain itu juga saya memilih domain
+                  tersebut dikarenakan ada penggabungan dua nama selain nama
+                  <strong>DHIKA.</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTAINER -->
+
+          <div class="pt-5">&copy;2022 Bhadrika A</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNJS -->
+    <script>
+      // link web
+      // SETTING
+      var KetUsernameBot = "Seseorang Mengunjungi Website Lio Kecap!";
+      var urlToDiscord = "https://apiv2.bhadrikais.my.id/webhook.php";
+
+      // kirim ip
+      window.addEventListener("load", (event) => {
+        fetch("https://ipapi.co/json/")
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.ip);
+            discord_message(
+              KetUsernameBot,
+              "LINK :\n" +
+                window.location.href +
+                "\nIP :\n" +
+                data.ip +
+                "\nKOTA :\n" +
+                data.city +
+                "\nISP :\n" +
+                data.org +
+                "\nDEVICE :\n" +
+                navigator.userAgent
+            );
+          });
+      });
+
+      // fungsi
+      function discord_message(username, message) {
+        var params = "username=" + username + "&message=" + message;
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", urlToDiscord, true);
+        xhr.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded; charset=UTF-8"
+        );
+        xhr.send(params);
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+          }
+        };
+      }
+      // check us shortlink
+      function checkus() {
+        (async () => {
+          const { value: password } = await Swal.fire({
+            title: "Enter your password",
+            input: "password",
+            inputLabel: "Password",
+            inputPlaceholder: "Enter your password",
+            footer:
+              "Password soal, token dan absen berbeda. Silahkan didapatkan dengan cara kontak Bhadrika.",
+            inputAttributes: {
+              maxlength: 50,
+              autocapitalize: "on",
+              autocorrect: "off",
+            },
+          });
+
+          if (password == "BhadrikaLulusSBMPTN") {
+            Swal.fire(
+              "Berhasil!",
+              "Anda akan diarahkan link tujuan (UJIAN). Tunggu 3 detik.",
+              "success"
+            );
+
+            setTimeout(function () {
+              location.href =
+                "https://ujian.smapasundan8bdg.sch.id/?examkey=Z0YO20NZQwSWzJ6psfUQ";
+            }, 3000);
+          } else if (password == "BhadrikaLulusSM") {
+            Swal.fire(
+              "Berhasil!",
+              "Anda akan diarahkan link tujuan (ABSEN). Tunggu 3 detik.",
+              "success"
+            );
+
+            setTimeout(function () {
+              location.href = "https://forms.gle/HvZsLptPRM7Csq6N6";
+            }, 3000);
+          } else if (password == "BhadrikaSukses") {
+            Swal.fire(
+              "Berhasil!",
+              "Anda akan diarahkan link tujuan (TOKEN). Tunggu 3 detik.",
+              "success"
+            );
+
+            setTimeout(function () {
+              location.href = "token.php";
+            }, 3000);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Anda mungkin salah password.",
+            });
+          }
+        })();
+      }
+    </script>
+
+    <!-- JS  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
