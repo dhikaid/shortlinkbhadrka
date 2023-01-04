@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/bhadrika/public_html/link.domain
+    - /bin/cp index.html $DEPLOYPATH
