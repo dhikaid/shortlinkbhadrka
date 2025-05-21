@@ -1,1104 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bhadrika Links</title>
-    <!-- Tailwind CSS -->
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <!-- Alpine.js -->
-    <script
-      defer
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Bhadrika Aryaputra | Link Collection - Personal Website, Portfolio and
+      Social Media
+    </title>
+    <meta
+      name="description"
+      content="Bhadrika Aryaputra's personal link collection. Connect with me on social media, check out my portfolio, or support my work through Saweria."
     />
+    <meta
+      name="keywords"
+      content="Bhadrika Aryaputra, web developer, backend developer, portfolio, links, YouTube, Instagram, Twitch"
+    />
+    <meta name="author" content="Bhadrika Aryaputra" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dhikaa.ml/" />
+    <meta property="og:title" content="Bhadrika Aryaputra | Link Collection" />
+    <meta
+      property="og:description"
+      content="Connect with Bhadrika Aryaputra on various platforms, check portfolio and social media."
+    />
+    <meta
+      property="og:image"
+      content="https://web.bhadrikais.my.id/storage/assets/logo.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://dhikaa.ml/" />
+    <meta
+      property="twitter:title"
+      content="Bhadrika Aryaputra | Link Collection"
+    />
+    <meta
+      property="twitter:description"
+      content="Connect with Bhadrika Aryaputra on various platforms, check portfolio and social media."
+    />
+    <meta
+      property="twitter:image"
+      content="https://web.bhadrikais.my.id/storage/assets/logo.png"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dhikaa.ml/" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://web.bhadrikais.my.id/storage/assets/logo.png"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f8fafc", // Slight off-white for less harshness
+              secondary: "#1e40af", // Deep blue
+              dark: "#0f172a", // Very dark blue/almost black
+              accent: "#3b82f6", // Bright blue for accents
+              text: "#1e293b", // Dark slate for text
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+            },
+            boxShadow: {
+              card: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+              "card-hover":
+                "0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)",
+            },
+          },
+        },
       };
     </script>
-    <style>
-      body {
-        font-family: "Outfit", sans-serif;
-        transition: background-color 0.3s ease;
-      }
-      .floating {
-        animation: floating 3s ease-in-out infinite;
-      }
-      @keyframes floating {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-      .shine {
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        background-size: 200% 100%;
-        animation: shine 3s infinite linear;
-      }
-      @keyframes shine {
-        0% {
-          background-position: -200% 0;
-        }
-        100% {
-          background-position: 200% 0;
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bhadrika Aryaputra",
+        "url": "https://dhikaa.ml/",
+        "image": "https://web.bhadrikais.my.id/storage/assets/logo.png",
+        "sameAs": [
+          "https://web.bhadrikais.my.id",
+          "https://youtube.com/bhadrikaaryaputra",
+          "https://instagram.com/bhadrika_aryaputra",
+          "https://twitch.tv/dhikaid"
+        ],
+        "jobTitle": "Backend Web Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Self-employed"
         }
       }
-      .fade-in {
-        animation: fadeIn 0.8s ease-in forwards;
-        opacity: 0;
-      }
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .theme-transition {
-        transition: all 0.3s ease;
-      }
-      .bg-gradient-custom {
-        background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-      }
-      .bg-gradient-custom-light {
-        background: linear-gradient(135deg, #f8fafc, #e0f2fe);
-      }
-      .aurora-text {
-        animation: aurora 8s ease-in-out infinite;
-        background: linear-gradient(
-          90deg,
-          #ff6b6b,
-          #4ecdc4,
-          #45b8ac,
-          #7367f0,
-          #ff6b6b
-        );
-        background-size: 400% 100%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      @keyframes aurora {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      .pl-card {
-        transform-origin: center;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      }
-
-      .pl-card:hover {
-        transform: scale(1.02) perspective(1000px) rotateX(2deg);
-        z-index: 1;
-      }
-
-      .pl-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 0.75rem;
-        padding: 2px;
-        background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b8ac, #7367f0);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      .pl-card:hover::before {
-        opacity: 1;
-      }
-
-      .icon-box {
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      }
-
-      .pl-card:hover .icon-box {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      /* Update aurora animation for cards */
-      .pl-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 0.75rem;
-        padding: 2px;
-        background: var(--aurora-gradient);
-        background-size: 400% 400%;
-        animation: aurora 8s ease-in-out infinite;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      /* Social Media Aurora Gradients */
-      .aurora-website {
-        --aurora-gradient: linear-gradient(
-          90deg,
-          #10b981,
-          #34d399,
-          #6ee7b7,
-          #10b981
-        );
-      }
-      .aurora-saweria {
-        --aurora-gradient: linear-gradient(
-          90deg,
-          #f59e0b,
-          #fcd34d,
-          #fbbf24,
-          #f59e0b
-        );
-      }
-      .aurora-youtube {
-        --aurora-gradient: linear-gradient(
-          90deg,
-          #ef4444,
-          #fca5a5,
-          #ef4444,
-          #b91c1c
-        );
-      }
-      .aurora-instagram {
-        --aurora-gradient: linear-gradient(
-          90deg,
-          #ec4899,
-          #f472b6,
-          #ec4899,
-          #db2777
-        );
-      }
-      .aurora-linkedin {
-        --aurora-gradient: linear-gradient(
-          90deg,
-          #0284c7,
-          #38bdf8,
-          #0284c7,
-          #0369a1
-        );
-      }
-      .aurora-github {
-        --aurora-gradient: linear-gradient(
-          90deg,
-          #475569,
-          #94a3b8,
-          #475569,
-          #334155
-        );
-      }
-
-      .pl-card:hover::before {
-        opacity: 1;
-      }
-
-      .pl-card:hover {
-        transform: scale(1.02) perspective(1000px) rotateX(2deg);
-        z-index: 1;
-      }
-
-      /* Enhanced icon glow effect */
-      .icon-glow {
-        position: relative;
-      }
-
-      .icon-glow::after {
-        content: "";
-        position: absolute;
-        inset: -5px;
-        background: inherit;
-        filter: blur(15px);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .pl-card:hover .icon-glow::after {
-        opacity: 0.5;
-      }
-
-      /* Replace animated-bg styles with new background */
-      .animated-bg {
-        background-color: #0f172a;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .animated-bg.light {
-        background-color: #f1f5f9; /* Changed from #f8fafc to slightly darker */
-      }
-
-      .gradient-circle {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.5; /* Increased from 0.4 */
-        mix-blend-mode: normal;
-        animation: float 20s ease-in-out infinite;
-        background: radial-gradient(
-          circle at center,
-          var(--circle-color),
-          transparent 60%
-        );
-      }
-
-      .circle-1 {
-        --circle-color: #60a5fa;
-        width: 600px;
-        height: 600px;
-        top: -100px;
-        left: -100px;
-        animation-delay: 0s;
-      }
-
-      .circle-2 {
-        --circle-color: #3b82f6;
-        width: 500px;
-        height: 500px;
-        bottom: -100px;
-        right: -100px;
-        animation-delay: -5s;
-      }
-
-      .circle-3 {
-        --circle-color: #2563eb;
-        width: 400px;
-        height: 400px;
-        bottom: 20%;
-        left: 20%;
-        animation-delay: -10s;
-      }
-
-      .light .gradient-circle {
-        opacity: 0.4; /* Increased from 0.2 */
-      }
-
-      .light .circle-1 {
-        --circle-color: #3b82f6; /* Darker blue */
-      }
-      .light .circle-2 {
-        --circle-color: #2563eb; /* More saturated blue */
-      }
-      .light .circle-3 {
-        --circle-color: #1d4ed8; /* Deep blue */
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        25% {
-          transform: translate(5%, 5%) scale(1.05);
-        }
-        50% {
-          transform: translate(-5%, 10%) scale(0.95);
-        }
-        75% {
-          transform: translate(10%, -5%) scale(1.02);
-        }
-      }
-
-      /* Update backdrop blur for better visibility */
-      .fixed.inset-0 .backdrop-blur-[100px] {
-        backdrop-filter: blur(80px);
-      }
-
-      /* Update light mode card backgrounds for better contrast */
-      .light .pl-card {
-        background-color: rgba(255, 255, 255, 0.8) !important;
-      }
-
-      /* Add new responsive styles */
-      .main-wrapper {
-        min-height: 100dvh;
-        padding: max(1rem, env(safe-area-inset-top))
-          max(1rem, env(safe-area-inset-right))
-          max(1rem, env(safe-area-inset-bottom))
-          max(1rem, env(safe-area-inset-left));
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .content-container {
-        width: 100%;
-        max-width: 480px;
-        margin: 0 auto;
-        padding: 1rem;
-      }
-
-      .profile-section {
-        margin-bottom: 2rem;
-      }
-
-      .links-grid {
-        display: grid;
-        gap: 0.75rem;
-      }
-
-      /* Better touch target sizes */
-      .pl-card {
-        min-height: 3.5rem;
-        padding: 1rem;
-      }
-
-      /* Improved hover effects */
-      @media (hover: hover) {
-        .pl-card:hover {
-          transform: scale(1.02) translateY(-2px);
-        }
-      }
-
-      /* Mobile optimizations */
-      @media (max-width: 380px) {
-        .content-container {
-          padding: 0.5rem;
-        }
-
-        .profile-img {
-          width: 88px !important;
-          height: 88px !important;
-        }
-
-        .profile-name {
-          font-size: 1.75rem !important;
-        }
-
-        .pl-card {
-          padding: 0.875rem;
-        }
-      }
-
-      /* Enhance touch feedback */
-      .pl-card:active {
-        transform: scale(0.98);
-      }
-
-      /* Better spacing for icons */
-      .icon-box {
-        padding: 0.625rem;
-        margin-right: 0.5rem;
-      }
-
-      /* Fix mobile viewport and add interactivity */
-      .main-container {
-        min-height: 100vh; /* fallback */
-        min-height: -webkit-fill-available;
-        width: 100vw;
-        overflow-x: hidden;
-        padding: env(safe-area-inset-top, 16px) env(safe-area-inset-right, 16px)
-          env(safe-area-inset-bottom, 16px) env(safe-area-inset-left, 16px);
-      }
-
-      /* Optimize for iPhone SE */
-      @media screen and (max-width: 375px) {
-        .profile-section img {
-          width: 84px !important;
-          height: 84px !important;
-        }
-
-        .profile-section h1 {
-          font-size: 1.75rem !important;
-        }
-
-        .links-container {
-          padding: 0 0.5rem;
-        }
-
-        .pl-card {
-          padding: 0.75rem !important;
-          min-height: 3.25rem;
-        }
-
-        .icon-box {
-          padding: 0.5rem !important;
-        }
-      }
-
-      /* Enhanced touch interactions */
-      .pl-card {
-        transform: translateZ(0);
-        touch-action: manipulation;
-      }
-
-      .pl-card:active {
-        transform: scale(0.97);
-        transition: transform 0.1s;
-      }
-
-      /* Better tap highlight handling */
-      * {
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      /* Add scroll snap */
-      .links-container {
-        scroll-snap-type: y proximity;
-        scroll-padding: 1rem;
-      }
-
-      .pl-card {
-        scroll-snap-align: start;
-      }
-
-      /* Add spring animation to cards */
-      @keyframes spring {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(0.97);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      .pl-card:active {
-        animation: spring 0.3s ease;
-      }
-
-      /* Update viewport and container styles */
-      .app-container {
-        min-height: 100vh; /* fallback */
-        min-height: 100dvh;
-        width: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-      }
-
-      .content-wrapper {
-        flex: 1;
-        width: 100%;
-        max-width: 480px;
-        margin: 0 auto;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        z-index: 10;
-      }
-
-      /* Improve card interactivity */
-      .pl-card {
-        cursor: pointer;
-        transform: translateZ(0);
-        transition: all 0.2s ease;
-      }
-
-      .pl-card:active {
-        transform: scale(0.98) translateY(1px);
-      }
-
-      .pl-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 0.75rem;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-        background: radial-gradient(
-          circle at var(--x, 50%) var(--y, 50%),
-          rgba(255, 255, 255, 0.1) 0%,
-          rgba(255, 255, 255, 0) 60%
-        );
-      }
-
-      .pl-card:hover::after {
-        opacity: 1;
-      }
-
-      /* Optimize for iPhone SE and small screens */
-      @media screen and (max-height: 667px), (max-width: 380px) {
-        .content-wrapper {
-          padding: 1rem;
-        }
-
-        .profile-section {
-          transform: scale(0.9);
-          margin: -1rem 0;
-        }
-
-        .pl-card {
-          padding: 0.75rem !important;
-          gap: 0.5rem;
-        }
-      }
-
-      /* Add loading animation */
-      .loading-screen {
-        position: fixed;
-        inset: 0;
-        background: #0f172a;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 50;
-      }
-
-      .loading-screen.fade-out {
-        animation: fadeOut 0.5s ease-in-out forwards;
-      }
-
-      .loading-animation {
-        width: 80px;
-        height: 80px;
-        position: relative;
-      }
-
-      .loading-animation:before,
-      .loading-animation:after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        border: 3px solid transparent;
-        animation: rotate 2s linear infinite;
-      }
-
-      .loading-animation:before {
-        border-top-color: #60a5fa;
-        border-right-color: #3b82f6;
-        animation-duration: 1.5s;
-      }
-
-      .loading-animation:after {
-        border-bottom-color: #2563eb;
-        border-left-color: #1d4ed8;
-        animation-duration: 2s;
-      }
-
-      @keyframes rotate {
-        0% {
-          transform: rotate(0deg) scale(1);
-        }
-        50% {
-          transform: rotate(180deg) scale(1.1);
-        }
-        100% {
-          transform: rotate(360deg) scale(1);
-        }
-      }
-
-      @keyframes fadeOut {
-        to {
-          opacity: 0;
-          visibility: hidden;
-        }
-      }
-
-      /* Improve spacing and padding */
-      .content-wrapper {
-        padding: clamp(1rem, 5vw, 2rem);
-        width: min(100%, 640px);
-        margin: 0 auto;
-      }
-
-      .links-container {
-        padding: 0 clamp(0.5rem, 3vw, 1.5rem);
-      }
-
-      /* Better card spacing */
-      .pl-card {
-        margin: 0.5rem 0;
-        padding: clamp(0.75rem, 2vw, 1rem);
-      }
-
-      /* Entrance animations */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.5s ease-out forwards;
-      }
-
-      @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Staggered animations for links */
-      .stagger-in > * {
-        opacity: 0;
-        animation: staggerFade 0.5s ease-out forwards;
-      }
-
-      @keyframes staggerFade {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Replace old loading animation with new elegant one */
-      .loading-screen {
-        position: fixed;
-        inset: 0;
-        background: #0f172a;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 50;
-      }
-
-      .loading-logo {
-        width: 80px;
-        height: 80px;
-        position: relative;
-        animation: logoReveal 1s ease-out forwards;
-      }
-
-      .loading-logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 20px;
-        opacity: 0;
-        animation: fadeScale 0.5s ease-out 0.2s forwards;
-      }
-
-      .loading-logo::after {
-        content: "";
-        position: absolute;
-        inset: -20px;
-        border-radius: 30px;
-        background: linear-gradient(135deg, #60a5fa, #3b82f6);
-        opacity: 0.5;
-        filter: blur(20px);
-        animation: glowPulse 2s ease-in-out infinite;
-      }
-
-      @keyframes logoReveal {
-        from {
-          transform: scale(0.8);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      @keyframes fadeScale {
-        from {
-          transform: scale(1.2);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      @keyframes glowPulse {
-        0%,
-        100% {
-          opacity: 0.5;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.7;
-          transform: scale(1.1);
-        }
-      }
-
-      /* Improve spacing for iPhone SE and other devices */
-      .content-wrapper {
-        padding: calc(env(safe-area-inset-top) + 2rem)
-          calc(env(safe-area-inset-right) + 1.5rem)
-          calc(env(safe-area-inset-bottom) + 2rem)
-          calc(env(safe-area-inset-left) + 1.5rem);
-        max-width: 640px;
-        margin: 0 auto;
-        width: 100%;
-        min-height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      /* Adjust container spacing */
-      .links-container {
-        padding: 1rem 0;
-        margin: 1rem 0;
-      }
-
-      /* Better spacing for small screens */
-      @media screen and (max-height: 667px) {
-        .content-wrapper {
-          padding-top: calc(env(safe-area-inset-top) + 1.5rem);
-          padding-bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
-        }
-
-        .profile-section {
-          margin-bottom: 1rem;
-        }
-
-        .links-container {
-          padding: 0.5rem 0;
-          margin: 0.5rem 0;
-        }
-      }
-    </style>
+    </script>
   </head>
-  <body
-    x-data="{ 
-    darkMode: true,
-    links: [
-        { 
-            icon: 'M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75l-4-4H3.75a1.5 1.5 0 01-1.5-1.5v-6a1.5 1.5 0 011.5-1.5h16.5a1.5 1.5 0 011.5 1.5v6a1.5 1.5 0 01-1.5 1.5h-1.5', 
-            title: 'Website', 
-            url: 'https://web.bhadrikais.my.id',
-            color: 'emerald'
-        },
-        {
-            icon: 'M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941', 
-            title: 'Saweria', 
-            url: 'https://saweria.co/bhadrika05',
-            color: 'amber'
-        },
-        {
-            icon: 'M21 12a9 9 0 11-18 0 9 9 0 0118 0zM15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z', 
-            title: 'YouTube', 
-            url: 'https://youtube.com/bhadrikaaryaputra',
-            color: 'red'
-        },
-        {
-            icon: 'M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0112 12.75zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 01-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 002.248-2.354M12 12.75a2.25 2.25 0 01-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 00-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 01.4-2.253M12 8.25a2.25 2.25 0 00-2.248 2.146M12 8.25a2.25 2.25 0 012.248 2.146M8.683 5a6.032 6.032 0 01-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0115.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 00-.575-1.752M4.921 6a24.048 24.048 0 00-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 01-5.223 1.082', 
-            title: 'Instagram', 
-            url: 'https://instagram.com/bhadrika_aryaputra',
-            color: 'pink'
-        },
-        {
-            icon: 'M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z',
-            title: 'LinkedIn',
-            url: 'https://www.linkedin.com/in/bhadrika05/',
-            color: 'blue'
-        },
-        {
-            icon: 'M15.75 2.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0V4.81L8.03 17.03a.75.75 0 01-1.06-1.06L19.19 3.75h-3.44a.75.75 0 010-1.5zm-10.5 4.5h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h10.5a.75.75 0 00.75-.75v-1.5a.75.75 0 011.5 0v1.5A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6z',
-            title: 'GitHub',
-            url: 'https://github.com/dhikaid',
-            color: 'slate'
-        }
-    ]
-}"
-    :class="darkMode ? 'dark animated-bg' : 'animated-bg light'"
-    class="app-container"
-  >
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-      <div class="loading-logo">
-        <img
-          src="https://avatars.githubusercontent.com/u/116243771?v=4"
-          alt="Logo"
-        />
-      </div>
-    </div>
 
-    <!-- Theme Toggle Button -->
-    <button
-      @click="darkMode = !darkMode; localStorage.theme = darkMode ? 'dark' : 'light'"
-      class="fixed top-4 right-4 p-3 rounded-xl theme-transition shadow-lg backdrop-blur-md"
-      :class="darkMode ? 'bg-white/10 text-amber-400 hover:bg-white/20' : 'bg-white text-slate-700 hover:bg-slate-100'"
-    >
-      <svg
-        x-show="darkMode"
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-        ></path>
-      </svg>
-      <svg
-        x-show="!darkMode"
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-        ></path>
-      </svg>
-    </button>
-
-    <!-- Background Circles -->
-    <div class="fixed inset-0 -z-10">
-      <div class="gradient-circle circle-1"></div>
-      <div class="gradient-circle circle-2"></div>
-      <div class="gradient-circle circle-3"></div>
-      <div class="absolute inset-0 backdrop-blur-[100px]"></div>
-    </div>
-
-    <main class="content-wrapper">
-      <!-- Profile Section -->
+  <body class="bg-primary font-sans text-text min-h-screen">
+    <!-- Enhanced Background -->
+    <div class="fixed inset-0 z-0 overflow-hidden">
+      <!-- Side accents -->
       <div
-        class="profile-section text-center mb-6 fade-up"
-        style="animation-delay: 0.3s"
-      >
-        <div class="relative inline-block group">
-          <div
-            class="absolute inset-0 rounded-full blur-xl opacity-75 dark:opacity-50 group-hover:opacity-100 transition-opacity duration-500"
-            :class="darkMode ? 'bg-gradient-to-r from-violet-500/30 via-cyan-500/30 to-purple-500/30' : 'bg-gradient-to-r from-cyan-300/40 via-sky-300/40 to-blue-300/40'"
-          ></div>
-          <img
-            src="https://avatars.githubusercontent.com/u/116243771?v=4"
-            class="w-32 h-32 rounded-full relative hover:scale-105 transition-transform duration-500 border-2"
-            :class="darkMode ? 'border-white/10' : 'border-slate-200'"
-            alt="Bhadrika Aryaputra"
-          />
-        </div>
-        <div class="space-y-2">
-          <h1 class="text-4xl font-bold theme-transition aurora-text">
+        class="absolute top-0 bottom-0 left-0 w-1.5 bg-secondary opacity-70"
+      ></div>
+      <div
+        class="absolute top-0 bottom-0 right-0 w-1.5 bg-secondary opacity-70"
+      ></div>
+
+      <!-- Corner decorations -->
+      <div
+        class="absolute top-0 left-0 w-24 h-24 bg-secondary opacity-5 rounded-br-[100px]"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-24 h-24 bg-secondary opacity-5 rounded-tl-[100px]"
+      ></div>
+
+      <!-- Subtle grid pattern -->
+      <div
+        class="absolute inset-0 opacity-[0.03]"
+        style="
+          background-image: linear-gradient(
+              to right,
+              #1e40af 1px,
+              transparent 1px
+            ),
+            linear-gradient(to bottom, #1e40af 1px, transparent 1px);
+          background-size: 20px 20px;
+        "
+      ></div>
+
+      <!-- Subtle diagonal line -->
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-secondary/0 via-secondary/20 to-secondary/0 transform -rotate-2 translate-y-24"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-secondary/0 via-secondary/20 to-secondary/0 transform rotate-2 -translate-y-24"
+      ></div>
+    </div>
+
+    <div
+      class="relative z-10 min-h-screen flex flex-col justify-center items-center p-6"
+    >
+      <div class="max-w-md w-full mx-auto">
+        <!-- Profile header with enhanced design -->
+        <div class="mb-10 flex flex-col items-center">
+          <!-- Profile image with more interesting border -->
+          <div class="relative inline-block mb-4">
+            <!-- Blue ring around avatar -->
+            <div
+              class="absolute inset-0 border-2 border-secondary rounded-full animate-pulse opacity-70"
+            ></div>
+            <div class="relative p-1 bg-white rounded-full shadow-lg">
+              <div
+                class="p-0.5 bg-gradient-to-tr from-secondary to-accent rounded-full"
+              >
+                <img
+                  src="https://web.bhadrikais.my.id/storage/assets/logo.png"
+                  class="h-28 w-28 rounded-full object-cover border border-white"
+                  alt="Bhadrika Aryaputra Profile Picture"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h1 class="text-2xl font-bold tracking-tight text-dark">
             Bhadrika Aryaputra
           </h1>
-          <p
-            class="text-sm font-medium theme-transition"
-            :class="darkMode ? 'text-cyan-400' : 'text-slate-600'"
-          >
-            Developer & Content Creator
-          </p>
+          <p class="text-text/60 mt-1">Backend Web Developer</p>
         </div>
-      </div>
 
-      <!-- Links Section with improved interactivity -->
-      <div
-        class="space-y-3 links-container stagger-in"
-        x-data="{
-          trackMouse(e, card) {
-            const rect = card.getBoundingClientRect();
-            card.style.setProperty('--x', `${e.clientX - rect.left}px`);
-            card.style.setProperty('--y', `${e.clientY - rect.top}px`);
-          }
-        }"
-      >
-        <template x-for="(link, index) in links" :key="link.title">
+        <!-- Link cards with improved design -->
+        <div class="space-y-3">
+          <!-- Website -->
           <a
-            :href="link.url"
-            class="block transform"
-            :style="`animation-delay: ${index * 50}ms`"
-            @mousemove="trackMouse($event, $el.querySelector('.pl-card'))"
-            @touchstart="$el.querySelector('.pl-card').classList.add('active')"
-            @touchend="$el.querySelector('.pl-card').classList.remove('active')"
+            href="https://web.bhadrikais.my.id"
+            class="block group"
+            aria-label="Personal Website"
           >
             <div
-              class="pl-card group relative backdrop-blur-xl rounded-lg p-3.5 flex items-center space-x-3 hover:shadow-xl border"
-              :class="[
-                     darkMode ? 'bg-white/5 hover:bg-white/10 border-white/5' : 'bg-white hover:bg-slate-50/80 border-slate-200',
-                     `aurora-${link.title.toLowerCase()}`
-                 ]"
+              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
             >
-              <div class="relative flex items-center space-x-3">
-                <div
-                  class="icon-box icon-glow p-2 rounded-lg transition-colors"
-                  :class="`text-${link.color}-500 bg-${link.color}-500/10 group-hover:bg-${link.color}-500/20`"
-                >
-                  <svg
-                    class="w-5 h-5 relative z-10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      :d="link.icon"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-                <span
-                  class="font-medium theme-transition"
-                  :class="darkMode ? 'text-white group-hover:text-white/90' : 'text-slate-700 group-hover:text-slate-900'"
-                  x-text="link.title"
-                ></span>
-              </div>
+              <!-- Subtle highlight effect on hover -->
               <div
-                class="ml-auto opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0"
+                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+
+              <div
+                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
               >
                 <svg
-                  class="w-5 h-5"
-                  :class="darkMode ? 'text-white/40' : 'text-slate-400'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
                   fill="none"
-                  stroke="currentColor"
                   viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M9 5l7 7-7 7"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  />
+                </svg>
+              </div>
+              <div class="flex-1 relative z-10">
+                <div class="font-medium text-dark">Website</div>
+                <div class="text-xs text-text/60">bhadrikais.my.id</div>
+              </div>
+              <div
+                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
                   />
                 </svg>
               </div>
             </div>
           </a>
-        </template>
-      </div>
 
-      <!-- Footer -->
-      <div
-        class="text-center text-sm py-4 theme-transition"
-        :class="darkMode ? 'text-white/40' : 'text-slate-500'"
-      >
-        &copy; 2025 Bhadrika Aryaputra
-      </div>
-    </main>
+          <!-- Saweria -->
+          <a
+            href="https://saweria.co/bhadrika05"
+            class="block group"
+            aria-label="Saweria Donation Page"
+          >
+            <div
+              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
+            >
+              <!-- Subtle highlight effect on hover -->
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
 
+              <div
+                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <div class="flex-1 relative z-10">
+                <div class="font-medium text-dark">Saweria</div>
+                <div class="text-xs text-text/60">saweria.co/bhadrika05</div>
+              </div>
+              <div
+                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- YouTube -->
+          <a
+            href="https://youtube.com/bhadrikaaryaputra"
+            class="block group"
+            aria-label="YouTube Channel"
+          >
+            <div
+              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
+            >
+              <!-- Subtle highlight effect on hover -->
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+
+              <div
+                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                  />
+                </svg>
+              </div>
+              <div class="flex-1 relative z-10">
+                <div class="font-medium text-dark">YouTube Channel</div>
+                <div class="text-xs text-text/60">
+                  youtube.com/bhadrikaaryaputra
+                </div>
+              </div>
+              <div
+                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Instagram -->
+          <a
+            href="https://instagram.com/bhadrika_aryaputra"
+            class="block group"
+            aria-label="Instagram Profile"
+          >
+            <div
+              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
+            >
+              <!-- Subtle highlight effect on hover -->
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+
+              <div
+                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </div>
+              <div class="flex-1 relative z-10">
+                <div class="font-medium text-dark">Instagram</div>
+                <div class="text-xs text-text/60">@bhadrika_aryaputra</div>
+              </div>
+              <div
+                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Twitch -->
+          <a
+            href="https://twitch.tv/dhikaid"
+            class="block group"
+            aria-label="Twitch TV Channel"
+          >
+            <div
+              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
+            >
+              <!-- Subtle highlight effect on hover -->
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+
+              <div
+                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div class="flex-1 relative z-10">
+                <div class="font-medium text-dark">Twitch TV</div>
+                <div class="text-xs text-text/60">twitch.tv/dhikaid</div>
+              </div>
+              <div
+                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Protected Links Button with improved design -->
+        </div>
+
+        <!-- Footer with subtle decoration -->
+        <div class="mt-12 text-center">
+          <div
+            class="w-16 h-px mx-auto bg-gradient-to-r from-transparent via-secondary/30 to-transparent mb-3"
+          ></div>
+          <p class="text-xs text-text/40" id="copyright-text"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNJS -->
+    <script src="./script.js"></script>
     <script>
-      // Loading animation handler
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          const loadingScreen = document.querySelector(".loading-screen");
-          loadingScreen.style.transition = "opacity 0.5s, visibility 0.5s";
-          loadingScreen.style.opacity = "0";
-          setTimeout(() => {
-            loadingScreen.style.visibility = "hidden";
-          }, 500);
+      // Automatically update the copyright year
+      document.addEventListener("DOMContentLoaded", function () {
+        const startYear = 2022;
+        const currentYear = new Date().getFullYear();
+        const yearDisplay =
+          startYear === currentYear ? startYear : startYear + "-" + currentYear;
 
-          // Trigger content animations
-          document.querySelectorAll(".fade-up").forEach((el, i) => {
-            el.style.animationDelay = `${0.3 + i * 0.1}s`;
-          });
-        }, 1500);
-      });
-
-      // Analytics code
-      window.addEventListener("load", async () => {
-        try {
-          const response = await fetch("https://ipapi.co/json/");
-          const data = await response.json();
-          const analyticsData = {
-            url: window.location.href,
-            ip: data.ip,
-            city: data.city,
-            isp: data.org,
-            device: navigator.userAgent,
-          };
-
-          await fetch("https://apiv2.bhadrikais.my.id/webhook.php?kode=2", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: `username=Visitor&message=New visit:\n${JSON.stringify(
-              analyticsData,
-              null,
-              2
-            )}`,
-          });
-        } catch (error) {
-          console.error("Analytics error:", error);
-        }
-      });
-
-      // Add particle animation
-      document.querySelectorAll(".particle").forEach((particle) => {
-        const duration = Math.random() * 10 + 5;
-        const keyframes = [
-          {
-            transform: `translate(0, 0) rotate(0deg) scale(${
-              Math.random() + 0.5
-            })`,
-          },
-          {
-            transform: `translate(${Math.random() * 100 - 50}px, ${
-              Math.random() * 100 - 50
-            }px) rotate(${Math.random() * 360}deg) scale(${
-              Math.random() + 0.5
-            })`,
-          },
-          {
-            transform: `translate(0, 0) rotate(0deg) scale(${
-              Math.random() + 0.5
-            })`,
-          },
-        ];
-
-        particle.animate(keyframes, {
-          duration: duration * 1000,
-          iterations: Infinity,
-          easing: "ease-in-out",
-        });
-      });
-
-      // Add haptic feedback for supported devices
-      function vibrate() {
-        if (navigator.vibrate) {
-          navigator.vibrate(10);
-        }
-      }
-
-      // Add touch feedback to all interactive elements
-      document.querySelectorAll("a, button").forEach((el) => {
-        el.addEventListener("touchstart", vibrate);
-      });
-
-      // Add smooth scroll on iOS
-      document.documentElement.style.setProperty(
-        "--vh",
-        `${window.innerHeight * 0.01}px`
-      );
-      window.addEventListener("resize", () => {
-        document.documentElement.style.setProperty(
-          "--vh",
-          `${window.innerHeight * 0.01}px`
-        );
-      });
-
-      // Add touch feedback
-      document.querySelectorAll(".pl-card").forEach((card) => {
-        card.addEventListener("touchstart", vibrate);
-        card.addEventListener("click", vibrate);
+        document.getElementById("copyright-text").innerHTML =
+          "&copy; " + yearDisplay + " Bhadrika Aryaputra";
       });
     </script>
   </body>
