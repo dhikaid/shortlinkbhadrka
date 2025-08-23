@@ -1,3 +1,38 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-poppins: Poppins, sans-serif;
+
+  --color-soft-blue: #eff6ff;
+  --color-soft-gray: #f9fafb;
+  --color-soft-green: #f0fdf4;
+  --color-soft-indigo: #eef2ff;
+  --color-earth-blue: #1e40af;
+  --color-earth-gray: #6b7280;
+  --color-earth-slate: #475569;
+  --color-verified-blue: #1da1f2;
+  --color-maintenance-orange: #f97316;
+  --color-maintenance-amber: #f59e0b;
+
+  --radius-soft: 1rem;
+  --radius-soft-xl: 1.5rem;
+  --radius-soft-2xl: 2rem;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}

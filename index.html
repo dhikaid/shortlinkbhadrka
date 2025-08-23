@@ -87,39 +87,11 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/src/output.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              poppins: ["Poppins", "sans-serif"],
-            },
-            colors: {
-              "soft-blue": "#EFF6FF",
-              "soft-gray": "#F9FAFB",
-              "soft-green": "#F0FDF4",
-              "soft-indigo": "#EEF2FF",
-              "earth-blue": "#1E40AF",
-              "earth-gray": "#6B7280",
-              "earth-slate": "#475569",
-              "verified-blue": "#1DA1F2",
-              "maintenance-orange": "#F97316",
-              "maintenance-amber": "#F59E0B",
-            },
-            borderRadius: {
-              soft: "1rem",
-              "soft-xl": "1.5rem",
-              "soft-2xl": "2rem",
-            },
-          },
-        },
-      };
-    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -377,13 +349,13 @@
     </style>
   </head>
   <body
-    class="min-h-screen bg-gradient-to-br from-soft-blue via-soft-gray to-soft-indigo flex items-center justify-center p-4"
+    class="min-h-screen bg-linear-to-br from-soft-blue via-soft-gray to-soft-indigo flex items-center justify-center p-4"
   >
     <div
       class="container mx-auto max-w-md w-full h-full max-h-[90vh] flex flex-col"
     >
       <!-- Profile Section -->
-      <div class="text-center mb-6 flex-shrink-0">
+      <div class="text-center mb-6 shrink-0">
         <!-- Profile Picture -->
         <div class="relative inline-block mb-4">
           <div
@@ -428,12 +400,12 @@
       <!-- Links Section - Scrollable jika konten banyak -->
       <div
         id="links-container"
-        class="space-y-3 mb-6 flex-grow overflow-y-auto custom-scrollbar pr-2"
+        class="space-y-3 mb-6 grow overflow-y-auto custom-scrollbar pr-2"
       >
         <!-- Links akan di-generate oleh JavaScript -->
       </div>
       <!-- Social Media Section -->
-      <div class="text-center flex-shrink-0 mb-4">
+      <div class="text-center shrink-0 mb-4">
         <p class="text-sm font-poppins text-gray-600 mb-3 font-light">
           Connect with me
         </p>
@@ -442,7 +414,7 @@
         </div>
       </div>
       <!-- Footer -->
-      <div class="text-center flex-shrink-0">
+      <div class="text-center shrink-0">
         <p
           id="footer-text"
           class="text-xs font-poppins text-gray-500 font-light tracking-wider"
@@ -544,7 +516,7 @@
             <a href="${link.maintenance ? "#" : link.url}" class="block group ${
           link.maintenance ? "cursor-not-allowed" : ""
         }">
-              <div class="bg-white/80 backdrop-blur-sm rounded-soft-xl p-4 shadow-lg hover-lift border border-white/50 ${
+              <div class="bg-white/80 backdrop-blur-xs rounded-soft-xl p-4 shadow-lg hover-lift border border-white/50 ${
                 link.maintenance ? "link-maintenance opacity-85" : ""
               } relative">
                 ${
@@ -559,7 +531,7 @@
                 }
                 <div class="flex items-center justify-between">
                   <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br ${
+                    <div class="w-10 h-10 bg-linear-to-br ${
                       link.gradient
                     } rounded-soft flex items-center justify-center ${
           link.maintenance ? "opacity-75" : ""
@@ -598,7 +570,7 @@
         socialLink: (social, index) => `
           <a href="${
             social.url
-          }" class="w-10 h-10 bg-white/50 backdrop-blur-sm rounded-full flex items-center justify-center hover-lift border border-white/30 fade-in" style="animation-delay: ${
+          }" class="w-10 h-10 bg-white/50 backdrop-blur-xs rounded-full flex items-center justify-center hover-lift border border-white/30 fade-in" style="animation-delay: ${
           index * 0.1 + 0.5
         }s">
             <i class="${social.icon} ${social.color}"></i>
