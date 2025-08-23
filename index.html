@@ -86,48 +86,757 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <!-- Tailwind CSS -->
-    <link href="/src/output.css" rel="stylesheet" />
+    <!-- Preload critical resources -->
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- Inline critical CSS -->
     <style>
+      /* Critical CSS for loading and initial render */
       body {
         font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
       }
+
+      /* Loading Screen Styles */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #eff6ff, #f9fafb, #eef2ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+
+      .loading-content {
+        text-align: center;
+      }
+
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        position: relative;
+        margin: 0 auto 20px;
+      }
+
+      .loading-spinner-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 4px solid rgba(30, 64, 175, 0.1);
+        border-radius: 50%;
+        border-top-color: #1e40af;
+        animation: spin 1s linear infinite;
+      }
+
+      .loading-spinner-ring:nth-child(2) {
+        width: 80%;
+        height: 80%;
+        top: 10%;
+        left: 10%;
+        border-top-color: #3b82f6;
+        animation-duration: 0.8s;
+        animation-direction: reverse;
+      }
+
+      .loading-spinner-ring:nth-child(3) {
+        width: 60%;
+        height: 60%;
+        top: 20%;
+        left: 20%;
+        border-top-color: #60a5fa;
+        animation-duration: 0.6s;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        color: #1e40af;
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 10px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out 0.5s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Main content hidden initially */
+      .main-content {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+
+      /* Optimized scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #3b82f6, #1e40af);
+        border-radius: 10px;
+      }
+    </style>
+    <!-- Defer non-critical CSS -->
+    <link
+      href="/src/output.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link href="/src/output.css" rel="stylesheet" /></noscript>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-soft-blue via-soft-gray to-soft-indigo flex items-center justify-center p-4"
+  >
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-content">
+        <div class="loading-spinner">
+          <div class="loading-spinner-ring"></div>
+          <div class="loading-spinner-ring"></div>
+          <div class="loading-spinner-ring"></div>
+        </div>
+        <p class="loading-text">Memuat konten...</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div
+      id="main-content"
+      class="main-content container mx-auto max-w-md w-full h-full max-h-[90vh] flex flex-col"
+    >
+      <!-- Profile Section -->
+      <div class="text-center mb-6 flex-shrink-0">
+        <!-- Profile Picture -->
+        <div class="relative inline-block mb-4">
+          <div
+            id="profile-picture-container"
+            class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg"
+          >
+            <img
+              id="profile-picture"
+              src="https://avatars.githubusercontent.com/u/116243771?v=4"
+              alt="Profile"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <!-- Decorative Ring -->
+          <div
+            class="absolute inset-0 rounded-full border-2 border-white/30 animate-pulse"
+          ></div>
+        </div>
+        <!-- Typography dengan Poppins -->
+        <div class="flex items-center justify-center">
+          <h1
+            id="profile-name"
+            class="text-3xl sm:text-4xl font-bold font-poppins text-gray-800 mb-1 leading-tight"
+          >
+            Bhadrika Aryaputra
+          </h1>
+          <div id="profile-verified">
+            <!-- Verified icon akan di-generate oleh JavaScript -->
+          </div>
+        </div>
+        <p
+          id="profile-title"
+          class="text-base sm:text-lg font-poppins text-gray-600 font-light tracking-wide"
+        >
+          Backend Developer
+        </p>
+      </div>
+
+      <!-- Links Section - Scrollable jika konten banyak -->
+      <div
+        id="links-container"
+        class="space-y-3 mb-6 flex-grow overflow-y-auto custom-scrollbar pr-2 pl-2 pb-3"
+      >
+        <!-- Links akan di-generate oleh JavaScript -->
+      </div>
+
+      <!-- Social Media Section -->
+      <div class="text-center flex-shrink-0 mb-4">
+        <p class="text-sm font-poppins text-gray-600 mb-3 font-light">
+          Connect with me
+        </p>
+        <div id="social-links" class="flex justify-center space-x-4">
+          <!-- Social links akan di-generate oleh JavaScript -->
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center flex-shrink-0">
+        <p
+          id="footer-text"
+          class="text-xs font-poppins text-gray-500 font-light tracking-wider"
+        >
+          Built with ❤️ by Bhadrika A (2020 - <span id="current-year"></span>)
+        </p>
+      </div>
+    </div>
+
+    <!-- Non-critical JavaScript deferred -->
+    <script defer>
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // ==========================================
+      // DATA LAYER - Semua data disimpan di sini
+      // ==========================================
+      // Data konfigurasi default
+      const defaultConfig = {
+        profile: {
+          picture: "https://avatars.githubusercontent.com/u/116243771?v=4",
+          name: "Bhadrika Aryaputra",
+          title: "Backend Developer",
+          verified: false,
+        },
+        links: [
+          {
+            icon: "fas fa-laptop-code",
+            gradient: "from-blue-500 to-indigo-600",
+            title: "Portfolio",
+            description: "Lihat project Bhadrika",
+            url: "https://web.bhadrikais.my.id",
+            verified: false,
+            maintenance: true,
+          },
+          {
+            icon: "fab fa-github",
+            gradient: "from-gray-600 to-gray-800",
+            title: "GitHub",
+            description: "Open source projects",
+            url: "https://github.com/dhikaid",
+            verified: false,
+            maintenance: false,
+          },
+          {
+            icon: "fab fa-linkedin",
+            gradient: "from-blue-400 to-blue-600",
+            title: "LinkedIn",
+            description: "Professional network",
+            url: "https://www.linkedin.com/in/bhadrika05",
+            verified: false,
+            maintenance: false,
+          },
+          {
+            icon: "fab fa-instagram",
+            gradient: "from-purple-500 to-purple-600",
+            title: "Instagram",
+            description: "Bhadrika's daily life & tech",
+            url: "https://www.instagram.com/bhadrika_aryaputra/",
+            verified: true,
+            maintenance: false,
+          },
+        ],
+        socialLinks: [
+          {
+            icon: "fab fa-github",
+            url: "https://github.com/dhikaid",
+            color: "text-gray-700 hover:text-gray-900",
+          },
+          {
+            icon: "fab fa-linkedin",
+            url: "https://www.linkedin.com/in/bhadrika05",
+            color: "text-gray-700 hover:text-blue-600",
+          },
+          {
+            icon: "fas fa-envelope",
+            url: "mailto:me@bhadrikais.my.id",
+            color: "text-gray-700 hover:text-red-500",
+          },
+        ],
+        footerText:
+          "Built with ❤️ by Bhadrika A (2020 - " +
+          new Date().getFullYear() +
+          ")",
+        pageTitle: "Bhadrika Aryaputra - Backend Developer | Portfolio & Links",
+      };
+
+      // Data konfigurasi yang bisa diedit
+      let config = { ...defaultConfig };
+
+      // Template untuk elemen-elemen dinamis
+      const templates = {
+        verifiedIcon: (size = "normal") => `
+          <i class="fas fa-check-circle ${
+            size === "normal" ? "verified-icon" : "verified-icon-small"
+          }"></i>
+        `,
+        maintenanceBadge: () => `
+          <div class="maintenance-badge text-xs px-3 py-1.5 rounded-full flex items-center mt-2">
+            <i class="fas fa-tools maintenance-icon mr-1.5"></i>
+            <span class="maintenance-text">Maintenance</span>
+          </div>
+        `,
+        link: (link, index) => `
+          <div class="fade-in" style="animation-delay: ${index * 0.1}s">
+            <a href="${link.maintenance ? "#" : link.url}" class="block group ${
+          link.maintenance ? "cursor-not-allowed" : ""
+        }">
+              <div class="bg-white/80 backdrop-blur-sm rounded-soft-xl p-4 shadow-lg border border-white/50 ${
+                link.maintenance ? "link-maintenance opacity-85" : ""
+              } relative">
+                ${
+                  link.maintenance
+                    ? '<div class="maintenance-overlay"></div>'
+                    : ""
+                }
+                ${
+                  link.maintenance
+                    ? '<div class="maintenance-warning"><i class="fas fa-exclamation text-white text-xs"></i></div>'
+                    : ""
+                }
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br ${
+                      link.gradient
+                    } rounded-soft flex items-center justify-center ${
+          link.maintenance ? "opacity-75" : ""
+        }">
+                      <i class="${link.icon} text-white text-base"></i>
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-center">
+                        <h3 class="text-base font-semibold font-poppins text-gray-800 ${
+                          link.maintenance
+                            ? "opacity-80"
+                            : "group-hover:text-blue-600 transition-colors"
+                        }">
+                          ${link.title}
+                        </h3>
+                        ${link.verified ? templates.verifiedIcon("small") : ""}
+                      </div>
+                      <p class="text-xs font-poppins text-gray-500 mt-1 ${
+                        link.maintenance ? "opacity-75" : ""
+                      }">
+                        ${link.description}
+                      </p>
+                      ${link.maintenance ? templates.maintenanceBadge() : ""}
+                    </div>
+                  </div>
+                  ${
+                    !link.maintenance
+                      ? '<i class="fas fa-arrow-right text-gray-400 group-hover:text-blue-600 transition-colors"></i>'
+                      : '<i class="fas fa-lock text-orange-400"></i>'
+                  }
+                </div>
+              </div>
+            </a>
+          </div>
+        `,
+        socialLink: (social, index) => `
+          <a href="${
+            social.url
+          }" class="w-10 h-10 bg-white/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 fade-in" style="animation-delay: ${
+          index * 0.1 + 0.5
+        }s">
+            <i class="${social.icon} ${social.color}"></i>
+          </a>
+        `,
+      };
+
+      // ==========================================
+      // APPLICATION LAYER - Logika aplikasi
+      // ==========================================
+      const app = {
+        // Inisialisasi aplikasi
+        init() {
+          this.loadFromLocalStorage();
+          this.render();
+          this.setupEventListeners();
+        },
+
+        // Setup event listeners with performance optimization
+        setupEventListeners() {
+          // Use passive event listeners for better scrolling performance
+          const linksContainer = document.getElementById("links-container");
+          if (linksContainer) {
+            linksContainer.addEventListener(
+              "scroll",
+              this.debounce(this.handleScroll, 100),
+              { passive: true }
+            );
+          }
+
+          // Cleanup event listeners on page unload
+          window.addEventListener("beforeunload", this.cleanup);
+        },
+
+        // Debounce function to limit how often a function can be called
+        debounce(func, wait) {
+          let timeout;
+          return function (...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+          };
+        },
+
+        // Handle scroll events
+        handleScroll() {
+          // Any scroll-related logic can go here
+          // This is just a placeholder for now
+        },
+
+        // Cleanup event listeners
+        cleanup() {
+          // Remove any event listeners here to prevent memory leaks
+        },
+
+        // Render seluruh aplikasi
+        render() {
+          this.renderProfile();
+          this.renderLinks();
+          this.renderSocialLinks();
+          this.renderFooter();
+          this.updatePageTitle();
+        },
+
+        // Render profil
+        renderProfile() {
+          const profilePic = document.getElementById("profile-picture");
+          if (profilePic) {
+            profilePic.src = config.profile.picture;
+          }
+
+          const profileName = document.getElementById("profile-name");
+          if (profileName) {
+            profileName.textContent = config.profile.name;
+          }
+
+          const profileTitle = document.getElementById("profile-title");
+          if (profileTitle) {
+            profileTitle.textContent = config.profile.title;
+          }
+
+          // Render verified icon untuk profile
+          const profileVerified = document.getElementById("profile-verified");
+          if (profileVerified) {
+            profileVerified.innerHTML = config.profile.verified
+              ? templates.verifiedIcon("normal")
+              : "";
+          }
+        },
+
+        // Render links
+        renderLinks() {
+          const linksContainer = document.getElementById("links-container");
+          if (linksContainer) {
+            // Use document fragment for better performance
+            const fragment = document.createDocumentFragment();
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = config.links
+              .map((link, index) => templates.link(link, index))
+              .join("");
+
+            while (tempDiv.firstChild) {
+              fragment.appendChild(tempDiv.firstChild);
+            }
+
+            linksContainer.innerHTML = "";
+            linksContainer.appendChild(fragment);
+          }
+        },
+
+        // Render social links
+        renderSocialLinks() {
+          const socialLinksContainer = document.getElementById("social-links");
+          if (socialLinksContainer) {
+            // Use document fragment for better performance
+            const fragment = document.createDocumentFragment();
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = config.socialLinks
+              .map((social, index) => templates.socialLink(social, index))
+              .join("");
+
+            while (tempDiv.firstChild) {
+              fragment.appendChild(tempDiv.firstChild);
+            }
+
+            socialLinksContainer.innerHTML = "";
+            socialLinksContainer.appendChild(fragment);
+          }
+        },
+
+        // Render footer
+        renderFooter() {
+          const footerText = document.getElementById("footer-text");
+          if (footerText) {
+            footerText.textContent = config.footerText;
+          }
+        },
+
+        // Update page title
+        updatePageTitle() {
+          const pageTitle = document.getElementById("page-title");
+          if (pageTitle) {
+            pageTitle.textContent = config.pageTitle;
+          }
+        },
+
+        // Memuat data dari localStorage
+        loadFromLocalStorage() {
+          try {
+            const saved = localStorage.getItem("linktreeConfig");
+            if (saved) {
+              config = { ...defaultConfig, ...JSON.parse(saved) };
+            }
+          } catch (e) {
+            console.error("Error loading from localStorage:", e);
+          }
+        },
+
+        // Method untuk mengupdate config secara programatik
+        updateConfig(newConfig) {
+          config = { ...config, ...newConfig };
+          this.render();
+          this.saveToLocalStorage();
+        },
+
+        // Method untuk menambah link baru secara programatik
+        addLink(newLink) {
+          config.links.push({
+            verified: false,
+            maintenance: false,
+            ...newLink,
+          });
+          this.render();
+          this.saveToLocalStorage();
+        },
+
+        // Method untuk menghapus link secara programatik
+        removeLink(index) {
+          if (index >= 0 && index < config.links.length) {
+            config.links.splice(index, 1);
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+
+        // Method untuk menambah social link baru secara programatik
+        addSocialLink(newSocialLink) {
+          config.socialLinks.push(newSocialLink);
+          this.render();
+          this.saveToLocalStorage();
+        },
+
+        // Method untuk menghapus social link secara programatik
+        removeSocialLink(index) {
+          if (index >= 0 && index < config.socialLinks.length) {
+            config.socialLinks.splice(index, 1);
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+
+        // Method untuk update profile secara programatik
+        updateProfile(profileData) {
+          config.profile = { ...config.profile, ...profileData };
+          this.render();
+          this.saveToLocalStorage();
+        },
+
+        // Method untuk mengatur status verified profile
+        setProfileVerified(verified) {
+          config.profile.verified = verified;
+          this.render();
+          this.saveToLocalStorage();
+        },
+
+        // Method untuk mengatur status verified link
+        setLinkVerified(index, verified) {
+          if (config.links[index]) {
+            config.links[index].verified = verified;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+
+        // Method untuk mengatur status maintenance link
+        setLinkMaintenance(index, maintenance) {
+          if (config.links[index]) {
+            config.links[index].maintenance = maintenance;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+
+        // Method untuk toggle status verified profile
+        toggleProfileVerified() {
+          config.profile.verified = !config.profile.verified;
+          this.render();
+          this.saveToLocalStorage();
+        },
+
+        // Method untuk toggle status verified link
+        toggleLinkVerified(index) {
+          if (config.links[index]) {
+            config.links[index].verified = !config.links[index].verified;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+
+        // Method untuk toggle status maintenance link
+        toggleLinkMaintenance(index) {
+          if (config.links[index]) {
+            config.links[index].maintenance = !config.links[index].maintenance;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+
+        // Menyimpan data ke localStorage
+        saveToLocalStorage() {
+          try {
+            localStorage.setItem("linktreeConfig", JSON.stringify(config));
+          } catch (e) {
+            console.error("Error saving to localStorage:", e);
+          }
+        },
+
+        // Method untuk reset ke default
+        resetToDefault() {
+          config = { ...defaultConfig };
+          this.render();
+          this.saveToLocalStorage();
+        },
+
+        // Method untuk mendapatkan config saat ini
+        getConfig() {
+          return { ...config };
+        },
+      };
+
+      // ==========================================
+      // INITIALIZATION - Jalankan aplikasi
+      // ==========================================
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize app
+        app.init();
+
+        // Handle loading screen
+        const loadingScreen = document.getElementById("loading-screen");
+        const mainContent = document.getElementById("main-content");
+
+        // Simulate loading time (you can adjust this)
+        setTimeout(() => {
+          // Fade out loading screen
+          loadingScreen.style.opacity = "0";
+
+          // After fade out animation, hide loading screen and show main content
+          setTimeout(() => {
+            loadingScreen.style.display = "none";
+            mainContent.style.opacity = "1";
+
+            // Add fade-in animations to elements
+            const fadeElements = document.querySelectorAll(".fade-in");
+            fadeElements.forEach((el) => {
+              el.style.opacity = "0";
+              el.style.transform = "translateY(20px)";
+
+              // Trigger reflow
+              void el.offsetWidth;
+
+              // Apply transition
+              el.style.transition =
+                "opacity 0.6s ease-out, transform 0.6s ease-out";
+              el.style.opacity = "1";
+              el.style.transform = "translateY(0)";
+            });
+          }, 500);
+        }, 1500); // 1.5 seconds loading time
+      });
+
+      // ==========================================
+      // PUBLIC API - Untuk manipulasi dari luar
+      // ==========================================
+      window.linktreeApp = {
+        // Update config
+        updateConfig: (newConfig) => app.updateConfig(newConfig),
+        // Profile operations
+        updateProfile: (profileData) => app.updateProfile(profileData),
+        setProfileVerified: (verified) => app.setProfileVerified(verified),
+        toggleProfileVerified: () => app.toggleProfileVerified(),
+        // Link operations
+        addLink: (newLink) => app.addLink(newLink),
+        removeLink: (index) => app.removeLink(index),
+        setLinkVerified: (index, verified) =>
+          app.setLinkVerified(index, verified),
+        toggleLinkVerified: (index) => app.toggleLinkVerified(index),
+        // Maintenance operations
+        setLinkMaintenance: (index, maintenance) =>
+          app.setLinkMaintenance(index, maintenance),
+        toggleLinkMaintenance: (index) => app.toggleLinkMaintenance(index),
+        // Social link operations
+        addSocialLink: (newSocialLink) => app.addSocialLink(newSocialLink),
+        removeSocialLink: (index) => app.removeSocialLink(index),
+        // Utility methods
+        resetToDefault: () => app.resetToDefault(),
+        getConfig: () => app.getConfig(),
+      };
+    </script>
+
+    <!-- Load non-critical styles after initial render -->
+    <style>
+      /* Non-critical styles loaded after initial render */
       .glass-effect {
         backdrop-filter: blur(10px);
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
       }
+
       .text-shadow {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
       }
+
       .hover-lift {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
+
       .hover-lift:hover {
         transform: translateY(-2px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       }
-      .fade-in {
-        animation: fadeIn 0.6s ease-out forwards;
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+
       .verified-icon {
         color: #1da1f2;
         font-size: 1.2rem;
@@ -136,6 +845,7 @@
         filter: drop-shadow(0 1px 2px rgba(29, 161, 242, 0.3));
         animation: verifiedPulse 2s ease-in-out infinite;
       }
+
       .verified-icon-small {
         color: #1da1f2;
         font-size: 0.9rem;
@@ -143,6 +853,7 @@
         vertical-align: middle;
         filter: drop-shadow(0 1px 2px rgba(29, 161, 242, 0.3));
       }
+
       @keyframes verifiedPulse {
         0%,
         100% {
@@ -154,36 +865,10 @@
           opacity: 0.8;
         }
       }
+
       .verified-icon:hover {
         transform: scale(1.2);
         transition: transform 0.2s ease;
-      }
-      /* Custom scrollbar yang selaras dengan tema */
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 3px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-        backdrop-filter: blur(5px);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #3b82f6, #1e40af);
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(to bottom, #2563eb, #1d4ed8);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      }
-      .custom-scrollbar::-webkit-scrollbar-corner {
-        background: transparent;
-      }
-      /* Efek glassmorphism untuk scrollbar */
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
       /* Enhanced Maintenance Badge Styles */
@@ -347,476 +1032,8 @@
         font-size: 0.65rem;
       }
     </style>
-  </head>
-  <body
-    class="min-h-screen bg-linear-to-br from-soft-blue via-soft-gray to-soft-indigo flex items-center justify-center p-4"
-  >
-    <!-- Loading Spinner -->
-    <div
-      id="loading-spinner"
-      class="fixed inset-0 flex items-center justify-center bg-white z-50"
-    >
-      <div
-        class="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"
-      ></div>
-    </div>
 
-    <div
-      id="main-content"
-      class="container mx-auto max-w-md w-full h-full max-h-[90vh] flex flex-col opacity-0 transition-opacity duration-500"
-    >
-      <!-- Profile Section -->
-      <div class="text-center mb-6 shrink-0">
-        <!-- Profile Picture -->
-        <div class="relative inline-block mb-4">
-          <div
-            id="profile-picture-container"
-            class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg hover-lift"
-          >
-            <img
-              id="profile-picture"
-              src="https://picsum.photos/seed/default-profile/200/200.jpg"
-              alt="Profile"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <!-- Decorative Ring -->
-          <div
-            class="absolute inset-0 rounded-full border-2 border-white/30 animate-pulse"
-          ></div>
-        </div>
-        <!-- Typography dengan Poppins -->
-        <div class="flex items-center justify-center">
-          <h1
-            id="profile-name"
-            class="text-3xl sm:text-4xl font-bold font-poppins text-gray-800 mb-1 text-shadow leading-tight fade-in"
-          >
-            Bhadrika Aryaputra
-          </h1>
-          <div
-            id="profile-verified"
-            class="fade-in"
-            style="animation-delay: 0.2s"
-          >
-            <!-- Verified icon akan di-generate oleh JavaScript -->
-          </div>
-        </div>
-        <p
-          id="profile-title"
-          class="text-base sm:text-lg font-poppins text-gray-600 font-light tracking-wide fade-in"
-        >
-          Backend Developer
-        </p>
-      </div>
-      <!-- Links Section - Scrollable jika konten banyak -->
-      <div
-        id="links-container"
-        class="space-y-3 mb-6 grow overflow-y-auto custom-scrollbar pr-2"
-      >
-        <!-- Links akan di-generate oleh JavaScript -->
-      </div>
-      <!-- Social Media Section -->
-      <div class="text-center shrink-0 mb-4">
-        <p class="text-sm font-poppins text-gray-600 mb-3 font-light">
-          Connect with me
-        </p>
-        <div id="social-links" class="flex justify-center space-x-4">
-          <!-- Social links akan di-generate oleh JavaScript -->
-        </div>
-      </div>
-      <!-- Footer -->
-      <div class="text-center shrink-0">
-        <p
-          id="footer-text"
-          class="text-xs font-poppins text-gray-500 font-light tracking-wider"
-        >
-          Built with ❤️ using Tailwind CSS
-        </p>
-      </div>
-    </div>
-    <script>
-      // ==========================================
-      // DATA LAYER - Semua data disimpan di sini
-      // ==========================================
-      // Data konfigurasi default
-      const defaultConfig = {
-        profile: {
-          picture: "https://avatars.githubusercontent.com/u/116243771?v=4",
-          name: "Bhadrika Aryaputra",
-          title: "Backend Developer",
-          verified: false, // Tambahkan verified untuk profile
-        },
-        links: [
-          {
-            icon: "fas fa-laptop-code",
-            gradient: "from-blue-500 to-indigo-600",
-            title: "Portfolio",
-            description: "Lihat project Bhadrika",
-            url: "https://web.bhadrikais.my.id",
-            verified: false, // Tambahkan verified untuk link
-            maintenance: true, // Tambahkan maintenance status
-          },
-          {
-            icon: "fab fa-github",
-            gradient: "from-gray-600 to-gray-800",
-            title: "GitHub",
-            description: "Open source projects",
-            url: "https://github.com/dhikaid",
-            verified: false,
-            maintenance: false, // Contoh link dalam maintenance
-          },
-          {
-            icon: "fab fa-linkedin",
-            gradient: "from-blue-400 to-blue-600",
-            title: "LinkedIn",
-            description: "Professional network",
-            url: "https://www.linkedin.com/in/bhadrika05",
-            verified: false,
-            maintenance: false,
-          },
-          {
-            icon: "fab fa-instagram",
-            gradient: "from-purple-500 to-purple-600",
-            title: "Instagram",
-            description: "Bhadrika's daily life & tech",
-            url: "https://www.instagram.com/bhadrika_aryaputra/",
-            verified: true,
-            maintenance: false, // Contoh link dalam maintenance
-          },
-        ],
-        socialLinks: [
-          {
-            icon: "fab fa-github",
-            url: "https://github.com/dhikaid",
-            color: "text-gray-700 hover:text-gray-900",
-          },
-          {
-            icon: "fab fa-linkedin",
-            url: "https://www.linkedin.com/in/bhadrika05",
-            color: "text-gray-700 hover:text-blue-600",
-          },
-          {
-            icon: "fas fa-envelope",
-            url: "mailto:me@bhadrikais.my.id",
-            color: "text-gray-700 hover:text-red-500",
-          },
-        ],
-        footerText:
-          "Built with ❤️ by Bhadrika A (2020 - " +
-          new Date().getFullYear() +
-          ")",
-        pageTitle: "Bhadrika Aryaputra - Backend Developer | Portfolio & Links",
-      };
-      // Data konfigurasi yang bisa diedit
-      let config = { ...defaultConfig };
-      // Template untuk elemen-elemen dinamis
-      const templates = {
-        verifiedIcon: (size = "normal") => `
-          <i class="fas fa-check-circle ${
-            size === "normal" ? "verified-icon" : "verified-icon-small"
-          }"></i>
-        `,
-        maintenanceBadge: () => `
-          <div class="maintenance-badge text-xs px-3 py-1.5 rounded-full flex items-center mt-2">
-            <i class="fas fa-tools maintenance-icon mr-1.5"></i>
-            <span class="maintenance-text">Maintenance</span>
-          </div>
-        `,
-        link: (link, index) => `
-          <div class="fade-in" style="animation-delay: ${index * 0.1}s">
-            <a href="${link.maintenance ? "#" : link.url}" class="block group ${
-          link.maintenance ? "cursor-not-allowed" : ""
-        }">
-              <div class="bg-white/80 backdrop-blur-xs rounded-soft-xl p-4 shadow-lg hover-lift border border-white/50 ${
-                link.maintenance ? "link-maintenance opacity-85" : ""
-              } relative">
-                ${
-                  link.maintenance
-                    ? '<div class="maintenance-overlay"></div>'
-                    : ""
-                }
-                ${
-                  link.maintenance
-                    ? '<div class="maintenance-warning"><i class="fas fa-exclamation text-white text-xs"></i></div>'
-                    : ""
-                }
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-linear-to-br ${
-                      link.gradient
-                    } rounded-soft flex items-center justify-center ${
-          link.maintenance ? "opacity-75" : ""
-        }">
-                      <i class="${link.icon} text-white text-base"></i>
-                    </div>
-                    <div class="flex-1">
-                      <div class="flex items-center">
-                        <h3 class="text-base font-semibold font-poppins text-gray-800 ${
-                          link.maintenance
-                            ? "opacity-80"
-                            : "group-hover:text-blue-600 transition-colors"
-                        }">
-                          ${link.title}
-                        </h3>
-                        ${link.verified ? templates.verifiedIcon("small") : ""}
-                      </div>
-                      <p class="text-xs font-poppins text-gray-500 mt-1 ${
-                        link.maintenance ? "opacity-75" : ""
-                      }">
-                        ${link.description}
-                      </p>
-                      ${link.maintenance ? templates.maintenanceBadge() : ""}
-                    </div>
-                  </div>
-                  ${
-                    !link.maintenance
-                      ? '<i class="fas fa-arrow-right text-gray-400 group-hover:text-blue-600 transition-colors"></i>'
-                      : '<i class="fas fa-lock text-orange-400"></i>'
-                  }
-                </div>
-              </div>
-            </a>
-          </div>
-        `,
-        socialLink: (social, index) => `
-          <a href="${
-            social.url
-          }" class="w-10 h-10 bg-white/50 backdrop-blur-xs rounded-full flex items-center justify-center hover-lift border border-white/30 fade-in" style="animation-delay: ${
-          index * 0.1 + 0.5
-        }s">
-            <i class="${social.icon} ${social.color}"></i>
-          </a>
-        `,
-      };
-      // ==========================================
-      // APPLICATION LAYER - Logika aplikasi
-      // ==========================================
-      const app = {
-        // Inisialisasi aplikasi
-        init() {
-          this.loadFromLocalStorage();
-          this.render(); // Diperbaiki: render() -> this.render()
-        },
-        // Render seluruh aplikasi
-        render() {
-          this.renderProfile();
-          this.renderLinks();
-          this.renderSocialLinks();
-          this.renderFooter();
-          this.updatePageTitle();
-        },
-        // Render profil
-        renderProfile() {
-          document.getElementById("profile-picture").src =
-            config.profile.picture;
-          document.getElementById("profile-name").textContent =
-            config.profile.name;
-          document.getElementById("profile-title").textContent =
-            config.profile.title;
-          // Render verified icon untuk profile
-          const profileVerified = document.getElementById("profile-verified");
-          profileVerified.innerHTML = config.profile.verified
-            ? templates.verifiedIcon("normal")
-            : "";
-        },
-        // Render links
-        renderLinks() {
-          const linksContainer = document.getElementById("links-container");
-          linksContainer.innerHTML = config.links
-            .map((link, index) => templates.link(link, index))
-            .join("");
-        },
-        // Render social links
-        renderSocialLinks() {
-          const socialLinksContainer = document.getElementById("social-links");
-          socialLinksContainer.innerHTML = config.socialLinks
-            .map((social, index) => templates.socialLink(social, index))
-            .join("");
-        },
-        // Render footer
-        renderFooter() {
-          document.getElementById("footer-text").textContent =
-            config.footerText;
-        },
-        // Update page title
-        updatePageTitle() {
-          document.getElementById("page-title").textContent = config.pageTitle;
-        },
-        // Memuat data dari localStorage
-        loadFromLocalStorage() {
-          const saved = localStorage.getItem("linktreeConfig");
-          if (saved) {
-            config = { ...defaultConfig, ...JSON.parse(saved) };
-          }
-        },
-        // Method untuk mengupdate config secara programatik
-        updateConfig(newConfig) {
-          config = { ...config, ...newConfig };
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk menambah link baru secara programatik
-        addLink(newLink) {
-          config.links.push({
-            verified: false,
-            maintenance: false, // Default maintenance: false
-            ...newLink,
-          });
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk menghapus link secara programatik
-        removeLink(index) {
-          config.links.splice(index, 1);
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk menambah social link baru secara programatik
-        addSocialLink(newSocialLink) {
-          config.socialLinks.push(newSocialLink);
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk menghapus social link secara programatik
-        removeSocialLink(index) {
-          config.socialLinks.splice(index, 1);
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk update profile secara programatik
-        updateProfile(profileData) {
-          config.profile = { ...config.profile, ...profileData };
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk mengatur status verified profile
-        setProfileVerified(verified) {
-          config.profile.verified = verified;
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk mengatur status verified link
-        setLinkVerified(index, verified) {
-          if (config.links[index]) {
-            config.links[index].verified = verified;
-            this.render();
-            this.saveToLocalStorage();
-          }
-        },
-        // Method untuk mengatur status maintenance link
-        setLinkMaintenance(index, maintenance) {
-          if (config.links[index]) {
-            config.links[index].maintenance = maintenance;
-            this.render();
-            this.saveToLocalStorage();
-          }
-        },
-        // Method untuk toggle status verified profile
-        toggleProfileVerified() {
-          config.profile.verified = !config.profile.verified;
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk toggle status verified link
-        toggleLinkVerified(index) {
-          if (config.links[index]) {
-            config.links[index].verified = !config.links[index].verified;
-            this.render();
-            this.saveToLocalStorage();
-          }
-        },
-        // Method untuk toggle status maintenance link
-        toggleLinkMaintenance(index) {
-          if (config.links[index]) {
-            config.links[index].maintenance = !config.links[index].maintenance;
-            this.render();
-            this.saveToLocalStorage();
-          }
-        },
-        // Menyimpan data ke localStorage
-        saveToLocalStorage() {
-          localStorage.setItem("linktreeConfig", JSON.stringify(config));
-        },
-        // Method untuk reset ke default
-        resetToDefault() {
-          config = { ...defaultConfig };
-          this.render();
-          this.saveToLocalStorage();
-        },
-        // Method untuk mendapatkan config saat ini
-        getConfig() {
-          return { ...config };
-        },
-      };
-      // ==========================================
-      // INITIALIZATION - Jalankan aplikasi
-      // ==========================================
-      document.addEventListener("DOMContentLoaded", () => {
-        app.init(); // Inisialisasi aplikasi (misalnya memuat data dari localStorage)
-
-        const spinner = document.getElementById("loading-spinner");
-        const mainContent = document.getElementById("main-content");
-
-        // Logika untuk menangani berbagai situasi loading
-        const ensureContentReady = () => {
-          // Di sini Anda bisa menambahkan logika lebih lanjut jika diperlukan,
-          // misalnya menunggu fetch data dari server selesai.
-          // Untuk contoh ini, kita akan menunggu sebentar untuk menirukan loading yang lebih lama
-          // atau situasi di mana konten membutuhkan waktu untuk diproses.
-          setTimeout(() => {
-            spinner.style.display = "none"; // Sembunyikan spinner
-            mainContent.style.opacity = "1"; // Tampilkan konten utama dengan animasi fade
-          }, 1500); // Waktu tunggu 1.5 detik (sesuaikan jika perlu)
-        };
-
-        // Panggil fungsi untuk memastikan konten siap
-        ensureContentReady();
-      });
-      // ==========================================
-      // PUBLIC API - Untuk manipulasi dari luar
-      // ==========================================
-      window.linktreeApp = {
-        // Update config
-        updateConfig: (newConfig) => app.updateConfig(newConfig),
-        // Profile operations
-        updateProfile: (profileData) => app.updateProfile(profileData),
-        setProfileVerified: (verified) => app.setProfileVerified(verified),
-        toggleProfileVerified: () => app.toggleProfileVerified(),
-        // Link operations
-        addLink: (newLink) => app.addLink(newLink),
-        removeLink: (index) => app.removeLink(index),
-        setLinkVerified: (index, verified) =>
-          app.setLinkVerified(index, verified),
-        toggleLinkVerified: (index) => app.toggleLinkVerified(index),
-        // Maintenance operations
-        setLinkMaintenance: (index, maintenance) =>
-          app.setLinkMaintenance(index, maintenance),
-        toggleLinkMaintenance: (index) => app.toggleLinkMaintenance(index),
-        // Social link operations
-        addSocialLink: (newSocialLink) => app.addSocialLink(newSocialLink),
-        removeSocialLink: (index) => app.removeSocialLink(index),
-        // Utility methods
-        resetToDefault: () => app.resetToDefault(),
-        getConfig: () => app.getConfig(),
-        // Contoh penggunaan:
-        // linktreeApp.setProfileVerified(true);
-        // linktreeApp.setLinkVerified(0, true);
-        // linktreeApp.toggleProfileVerified();
-        // linktreeApp.toggleLinkVerified(1);
-        // linktreeApp.setLinkMaintenance(0, true);
-        // linktreeApp.toggleLinkMaintenance(2);
-        //
-        // linktreeApp.addLink({
-        //   icon: "fab fa-twitter",
-        //   gradient: "from-blue-400 to-blue-600",
-        //   title: "Twitter",
-        //   description: "Follow me",
-        //   url: "https://twitter.com/username",
-        //   verified: true,
-        //   maintenance: false
-        // });
-      };
-    </script>
-    <script src="./script.js"></script>
+    <!-- Load external script at the end -->
+    <script src="./script.js" defer></script>
   </body>
 </html>
