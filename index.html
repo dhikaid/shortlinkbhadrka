@@ -351,8 +351,19 @@
   <body
     class="min-h-screen bg-linear-to-br from-soft-blue via-soft-gray to-soft-indigo flex items-center justify-center p-4"
   >
+    <!-- Loading Spinner -->
     <div
-      class="container mx-auto max-w-md w-full h-full max-h-[90vh] flex flex-col"
+      id="loading-spinner"
+      class="fixed inset-0 flex items-center justify-center bg-white z-50"
+    >
+      <div
+        class="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"
+      ></div>
+    </div>
+
+    <div
+      id="main-content"
+      class="container mx-auto max-w-md w-full h-full max-h-[90vh] flex flex-col opacity-0 transition-opacity duration-500"
     >
       <!-- Profile Section -->
       <div class="text-center mb-6 shrink-0">
@@ -741,7 +752,25 @@
       // INITIALIZATION - Jalankan aplikasi
       // ==========================================
       document.addEventListener("DOMContentLoaded", () => {
-        app.init();
+        app.init(); // Inisialisasi aplikasi (misalnya memuat data dari localStorage)
+
+        const spinner = document.getElementById("loading-spinner");
+        const mainContent = document.getElementById("main-content");
+
+        // Logika untuk menangani berbagai situasi loading
+        const ensureContentReady = () => {
+          // Di sini Anda bisa menambahkan logika lebih lanjut jika diperlukan,
+          // misalnya menunggu fetch data dari server selesai.
+          // Untuk contoh ini, kita akan menunggu sebentar untuk menirukan loading yang lebih lama
+          // atau situasi di mana konten membutuhkan waktu untuk diproses.
+          setTimeout(() => {
+            spinner.style.display = "none"; // Sembunyikan spinner
+            mainContent.style.opacity = "1"; // Tampilkan konten utama dengan animasi fade
+          }, 1500); // Waktu tunggu 1.5 detik (sesuaikan jika perlu)
+        };
+
+        // Panggil fungsi untuk memastikan konten siap
+        ensureContentReady();
       });
       // ==========================================
       // PUBLIC API - Untuk manipulasi dari luar
