@@ -1,465 +1,821 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" prefix="og: https://ogp.me/ns#">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- SEO Meta Tags -->
-    <title>
-      Bhadrika Aryaputra | Link Collection - Personal Website, Portfolio and
-      Social Media
+    <!-- Meta Tags Dasar untuk SEO -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <!-- Title & Description untuk SEO -->
+    <title id="page-title">
+      Bhadrika Aryaputra - Backend Developer | Portfolio & Links
     </title>
     <meta
       name="description"
-      content="Bhadrika Aryaputra's personal link collection. Connect with me on social media, check out my portfolio, or support my work through Saweria."
+      content="Bhadrika Aryaputra - Backend Developer profesional dengan pengalaman dalam pengembangan backend. Lihat portfolio, GitHub, LinkedIn, dan hubungi saya untuk project kolaborasi."
     />
     <meta
       name="keywords"
-      content="Bhadrika Aryaputra, web developer, backend developer, portfolio, links, YouTube, Instagram, Twitch"
+      content="Bhadrika Aryaputra, Backend Developer, Software Developer, Portfolio, GitHub, LinkedIn, Programmer, Developer Indonesia"
     />
     <meta name="author" content="Bhadrika Aryaputra" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dhikaa.ml/" />
-    <meta property="og:title" content="Bhadrika Aryaputra | Link Collection" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://link.bhadrikais.my.id" />
+    <!-- Open Graph Tags untuk Social Media -->
+    <meta property="og:type" content="profile" />
+    <meta
+      property="og:title"
+      content="Bhadrika Aryaputra - Backend Developer"
+    />
     <meta
       property="og:description"
-      content="Connect with Bhadrika Aryaputra on various platforms, check portfolio and social media."
+      content="Backend Developer profesional dengan pengalaman dalam pengembangan backend. Lihat portfolio dan hubungi saya untuk project kolaborasi."
     />
+    <meta property="og:url" content="https://link.bhadrikais.my.id" />
     <meta
       property="og:image"
-      content="https://web.bhadrikais.my.id/storage/assets/logo.png"
+      content="https://picsum.photos/seed/default-profile/1200/630.jpg"
     />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://dhikaa.ml/" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta
-      property="twitter:title"
-      content="Bhadrika Aryaputra | Link Collection"
+      property="og:image:alt"
+      content="Bhadrika Aryaputra - Backend Developer"
+    />
+    <meta property="og:site_name" content="Bhadrika Aryaputra Portfolio" />
+    <meta property="og:locale" content="id_ID" />
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@bhadrika05" />
+    <meta name="twitter:creator" content="@bhadrika05" />
+    <meta
+      name="twitter:title"
+      content="Bhadrika Aryaputra - Backend Developer"
     />
     <meta
-      property="twitter:description"
-      content="Connect with Bhadrika Aryaputra on various platforms, check portfolio and social media."
+      name="twitter:description"
+      content="Backend Developer profesional dengan pengalaman dalam pengembangan backend."
     />
     <meta
-      property="twitter:image"
-      content="https://web.bhadrikais.my.id/storage/assets/logo.png"
+      name="twitter:image"
+      content="https://picsum.photos/seed/default-profile/1200/630.jpg"
     />
-
-    <link href="./src/output.css" rel="stylesheet" />
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://dhikaa.ml/" />
-
-    <!-- Favicon -->
+    <meta
+      name="twitter:image:alt"
+      content="Bhadrika Aryaputra - Backend Developer"
+    />
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1E40AF" />
+    <meta name="msapplication-TileColor" content="#1E40AF" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Bhadrika Aryaputra" />
+    <!-- Favicon dan Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Preconnect untuk Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      rel="icon"
-      type="image/png"
-      href="https://web.bhadrikais.my.id/storage/assets/logo.png"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
-    <!-- Google Fonts -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              "soft-blue": "#EFF6FF",
+              "soft-gray": "#F9FAFB",
+              "soft-green": "#F0FDF4",
+              "soft-indigo": "#EEF2FF",
+              "earth-blue": "#1E40AF",
+              "earth-gray": "#6B7280",
+              "earth-slate": "#475569",
+              "verified-blue": "#1DA1F2",
+              "maintenance-orange": "#F97316",
+              "maintenance-amber": "#F59E0B",
+            },
+            borderRadius: {
+              soft: "1rem",
+              "soft-xl": "1.5rem",
+              "soft-2xl": "2rem",
+            },
+          },
+        },
+      };
+    </script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Bhadrika Aryaputra",
-        "url": "https://dhikaa.ml/",
-        "image": "https://web.bhadrikais.my.id/storage/assets/logo.png",
-        "sameAs": [
-          "https://web.bhadrikais.my.id",
-          "https://youtube.com/bhadrikaaryaputra",
-          "https://instagram.com/bhadrika_aryaputra",
-          "https://twitch.tv/dhikaid"
-        ],
-        "jobTitle": "Backend Web Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Self-employed"
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .hover-lift {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .hover-lift:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
-    </script>
+      .verified-icon {
+        color: #1da1f2;
+        font-size: 1.2rem;
+        margin-left: 6px;
+        vertical-align: middle;
+        filter: drop-shadow(0 1px 2px rgba(29, 161, 242, 0.3));
+        animation: verifiedPulse 2s ease-in-out infinite;
+      }
+      .verified-icon-small {
+        color: #1da1f2;
+        font-size: 0.9rem;
+        margin-left: 4px;
+        vertical-align: middle;
+        filter: drop-shadow(0 1px 2px rgba(29, 161, 242, 0.3));
+      }
+      @keyframes verifiedPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+      .verified-icon:hover {
+        transform: scale(1.2);
+        transition: transform 0.2s ease;
+      }
+      /* Custom scrollbar yang selaras dengan tema */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 3px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #3b82f6, #1e40af);
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #2563eb, #1d4ed8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+      .custom-scrollbar::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+      /* Efek glassmorphism untuk scrollbar */
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      /* Enhanced Maintenance Badge Styles */
+      .maintenance-badge {
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.2),
+          rgba(249, 115, 22, 0.3)
+        );
+        color: #ea580c;
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .maintenance-badge::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .maintenance-badge:hover::before {
+        left: 100%;
+      }
+
+      .maintenance-badge:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25);
+      }
+
+      .maintenance-icon {
+        color: #f59e0b;
+        animation: maintenanceRotate 3s linear infinite,
+          maintenanceGlow 2s ease-in-out infinite alternate;
+        filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.5));
+      }
+
+      @keyframes maintenanceRotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes maintenanceGlow {
+        0% {
+          opacity: 0.8;
+          filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.5));
+        }
+        100% {
+          opacity: 1;
+          filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+        }
+      }
+
+      .link-maintenance {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .link-maintenance::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(245, 158, 11, 0.05),
+          rgba(245, 158, 11, 0.05) 10px,
+          rgba(245, 158, 11, 0.02) 10px,
+          rgba(245, 158, 11, 0.02) 20px
+        );
+        z-index: 1;
+        animation: maintenanceStripe 20s linear infinite;
+      }
+
+      @keyframes maintenanceStripe {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 40px 40px;
+        }
+      }
+
+      .link-maintenance > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .maintenance-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.1),
+          rgba(249, 115, 22, 0.15)
+        );
+        backdrop-filter: blur(2px);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .link-maintenance:hover .maintenance-overlay {
+        opacity: 1;
+      }
+
+      .maintenance-warning {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, #f59e0b, #ea580c);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+        z-index: 3;
+        animation: warningPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes warningPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+        }
+        50% {
+          transform: scale(1.1);
+          box-shadow: 0 4px 16px rgba(245, 158, 11, 0.6);
+        }
+      }
+
+      .maintenance-text {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-size: 0.65rem;
+      }
+    </style>
   </head>
-
-  <body class="bg-primary font-sans text-text min-h-screen">
-    <!-- Enhanced Background -->
-    <div class="fixed inset-0 z-0 overflow-hidden">
-      <!-- Side accents -->
-      <div
-        class="absolute top-0 bottom-0 left-0 w-1.5 bg-secondary opacity-70"
-      ></div>
-      <div
-        class="absolute top-0 bottom-0 right-0 w-1.5 bg-secondary opacity-70"
-      ></div>
-
-      <!-- Corner decorations -->
-      <div
-        class="absolute top-0 left-0 w-24 h-24 bg-secondary opacity-5 rounded-br-[100px]"
-      ></div>
-      <div
-        class="absolute bottom-0 right-0 w-24 h-24 bg-secondary opacity-5 rounded-tl-[100px]"
-      ></div>
-
-      <!-- Subtle grid pattern -->
-      <div
-        class="absolute inset-0 opacity-[0.03]"
-        style="
-          background-image: linear-gradient(
-              to right,
-              #1e40af 1px,
-              transparent 1px
-            ),
-            linear-gradient(to bottom, #1e40af 1px, transparent 1px);
-          background-size: 20px 20px;
-        "
-      ></div>
-
-      <!-- Subtle diagonal line -->
-      <div
-        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-secondary/0 via-secondary/20 to-secondary/0 transform -rotate-2 translate-y-24"
-      ></div>
-      <div
-        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-secondary/0 via-secondary/20 to-secondary/0 transform rotate-2 -translate-y-24"
-      ></div>
-    </div>
-
+  <body
+    class="min-h-screen bg-gradient-to-br from-soft-blue via-soft-gray to-soft-indigo flex items-center justify-center p-4"
+  >
     <div
-      class="relative z-10 min-h-screen flex flex-col justify-center items-center p-6"
+      class="container mx-auto max-w-md w-full h-full max-h-[90vh] flex flex-col"
     >
-      <div class="max-w-md w-full mx-auto">
-        <!-- Profile header with enhanced design -->
-        <div class="mb-10 flex flex-col items-center">
-          <!-- Profile image with more interesting border -->
-          <div class="relative inline-block mb-4">
-            <!-- Blue ring around avatar -->
-            <div
-              class="absolute inset-0 border-2 border-secondary rounded-full animate-pulse opacity-70"
-            ></div>
-            <div class="relative p-1 bg-white rounded-full shadow-lg">
-              <div
-                class="p-0.5 bg-gradient-to-tr from-secondary to-accent rounded-full"
-              >
-                <img
-                  src="https://web.bhadrikais.my.id/storage/assets/logo.png"
-                  class="h-28 w-28 rounded-full object-cover border border-white"
-                  alt="Bhadrika Aryaputra Profile Picture"
-                  loading="eager"
-                />
-              </div>
-            </div>
+      <!-- Profile Section -->
+      <div class="text-center mb-6 flex-shrink-0">
+        <!-- Profile Picture -->
+        <div class="relative inline-block mb-4">
+          <div
+            id="profile-picture-container"
+            class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg hover-lift"
+          >
+            <img
+              id="profile-picture"
+              src="https://picsum.photos/seed/default-profile/200/200.jpg"
+              alt="Profile"
+              class="w-full h-full object-cover"
+            />
           </div>
-
-          <h1 class="text-2xl font-bold tracking-tight text-dark">
+          <!-- Decorative Ring -->
+          <div
+            class="absolute inset-0 rounded-full border-2 border-white/30 animate-pulse"
+          ></div>
+        </div>
+        <!-- Typography dengan Poppins -->
+        <div class="flex items-center justify-center">
+          <h1
+            id="profile-name"
+            class="text-3xl sm:text-4xl font-bold font-poppins text-gray-800 mb-1 text-shadow leading-tight fade-in"
+          >
             Bhadrika Aryaputra
           </h1>
-          <p class="text-text/60 mt-1">Backend Web Developer</p>
-        </div>
-
-        <!-- Link cards with improved design -->
-        <div class="space-y-3">
-          <!-- Website -->
-          <a
-            href="https://web.bhadrikais.my.id"
-            class="block group"
-            aria-label="Personal Website"
-          >
-            <div
-              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
-            >
-              <!-- Subtle highlight effect on hover -->
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
-
-              <div
-                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                  />
-                </svg>
-              </div>
-              <div class="flex-1 relative z-10">
-                <div class="font-medium text-dark">Website</div>
-                <div class="text-xs text-text/60">bhadrikais.my.id</div>
-              </div>
-              <div
-                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <!-- Saweria -->
-          <a
-            href="https://saweria.co/bhadrika05"
-            class="block group"
-            aria-label="Saweria Donation Page"
-          >
-            <div
-              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
-            >
-              <!-- Subtle highlight effect on hover -->
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
-
-              <div
-                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div class="flex-1 relative z-10">
-                <div class="font-medium text-dark">Saweria</div>
-                <div class="text-xs text-text/60">saweria.co/bhadrika05</div>
-              </div>
-              <div
-                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <!-- YouTube -->
-          <a
-            href="https://youtube.com/bhadrikaaryaputra"
-            class="block group"
-            aria-label="YouTube Channel"
-          >
-            <div
-              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
-            >
-              <!-- Subtle highlight effect on hover -->
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
-
-              <div
-                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
-                  />
-                </svg>
-              </div>
-              <div class="flex-1 relative z-10">
-                <div class="font-medium text-dark">YouTube Channel</div>
-                <div class="text-xs text-text/60">
-                  youtube.com/bhadrikaaryaputra
-                </div>
-              </div>
-              <div
-                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <!-- Instagram -->
-          <a
-            href="https://instagram.com/bhadrika_aryaputra"
-            class="block group"
-            aria-label="Instagram Profile"
-          >
-            <div
-              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
-            >
-              <!-- Subtle highlight effect on hover -->
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
-
-              <div
-                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                  />
-                </svg>
-              </div>
-              <div class="flex-1 relative z-10">
-                <div class="font-medium text-dark">Instagram</div>
-                <div class="text-xs text-text/60">@bhadrika_aryaputra</div>
-              </div>
-              <div
-                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <!-- Twitch -->
-          <a
-            href="https://twitch.tv/dhikaid"
-            class="block group"
-            aria-label="Twitch TV Channel"
-          >
-            <div
-              class="bg-white border-l-4 border-secondary rounded-lg p-4 transition-all duration-300 flex items-center shadow-card group-hover:shadow-card-hover group-hover:-translate-y-0.5 group-hover:border-accent relative overflow-hidden"
-            >
-              <!-- Subtle highlight effect on hover -->
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
-
-              <div
-                class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-secondary relative z-10"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-              <div class="flex-1 relative z-10">
-                <div class="font-medium text-dark">Twitch TV</div>
-                <div class="text-xs text-text/60">twitch.tv/dhikaid</div>
-              </div>
-              <div
-                class="text-secondary relative z-10 group-hover:translate-x-1 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <!-- Protected Links Button with improved design -->
-        </div>
-
-        <!-- Footer with subtle decoration -->
-        <div class="mt-12 text-center">
           <div
-            class="w-16 h-px mx-auto bg-gradient-to-r from-transparent via-secondary/30 to-transparent mb-3"
-          ></div>
-          <p class="text-xs text-text/40" id="copyright-text"></p>
+            id="profile-verified"
+            class="fade-in"
+            style="animation-delay: 0.2s"
+          >
+            <!-- Verified icon akan di-generate oleh JavaScript -->
+          </div>
+        </div>
+        <p
+          id="profile-title"
+          class="text-base sm:text-lg font-poppins text-gray-600 font-light tracking-wide fade-in"
+        >
+          Backend Developer
+        </p>
+      </div>
+      <!-- Links Section - Scrollable jika konten banyak -->
+      <div
+        id="links-container"
+        class="space-y-3 mb-6 flex-grow overflow-y-auto custom-scrollbar pr-2"
+      >
+        <!-- Links akan di-generate oleh JavaScript -->
+      </div>
+      <!-- Social Media Section -->
+      <div class="text-center flex-shrink-0 mb-4">
+        <p class="text-sm font-poppins text-gray-600 mb-3 font-light">
+          Connect with me
+        </p>
+        <div id="social-links" class="flex justify-center space-x-4">
+          <!-- Social links akan di-generate oleh JavaScript -->
         </div>
       </div>
+      <!-- Footer -->
+      <div class="text-center flex-shrink-0">
+        <p
+          id="footer-text"
+          class="text-xs font-poppins text-gray-500 font-light tracking-wider"
+        >
+          Built with ❤️ using Tailwind CSS
+        </p>
+      </div>
     </div>
-
-    <!-- OWNJS -->
-    <script src="./script.js"></script>
     <script>
-      // Automatically update the copyright year
-      document.addEventListener("DOMContentLoaded", function () {
-        const startYear = 2022;
-        const currentYear = new Date().getFullYear();
-        const yearDisplay =
-          startYear === currentYear ? startYear : startYear + "-" + currentYear;
-
-        document.getElementById("copyright-text").innerHTML =
-          "&copy; " + yearDisplay + " Bhadrika Aryaputra";
+      // ==========================================
+      // DATA LAYER - Semua data disimpan di sini
+      // ==========================================
+      // Data konfigurasi default
+      const defaultConfig = {
+        profile: {
+          picture: "https://avatars.githubusercontent.com/u/116243771?v=4",
+          name: "Bhadrika Aryaputra",
+          title: "Backend Developer",
+          verified: false, // Tambahkan verified untuk profile
+        },
+        links: [
+          {
+            icon: "fas fa-laptop-code",
+            gradient: "from-blue-500 to-indigo-600",
+            title: "Portfolio",
+            description: "Lihat project Bhadrika",
+            url: "https://web.bhadrikais.my.id",
+            verified: false, // Tambahkan verified untuk link
+            maintenance: true, // Tambahkan maintenance status
+          },
+          {
+            icon: "fab fa-github",
+            gradient: "from-gray-600 to-gray-800",
+            title: "GitHub",
+            description: "Open source projects",
+            url: "https://github.com/dhikaid",
+            verified: false,
+            maintenance: false, // Contoh link dalam maintenance
+          },
+          {
+            icon: "fab fa-linkedin",
+            gradient: "from-blue-400 to-blue-600",
+            title: "LinkedIn",
+            description: "Professional network",
+            url: "https://www.linkedin.com/in/bhadrika05",
+            verified: false,
+            maintenance: false,
+          },
+          {
+            icon: "fab fa-instagram",
+            gradient: "from-purple-500 to-purple-600",
+            title: "Instagram",
+            description: "Bhadrika's daily life & tech",
+            url: "https://www.instagram.com/bhadrika_aryaputra/",
+            verified: true,
+            maintenance: false, // Contoh link dalam maintenance
+          },
+        ],
+        socialLinks: [
+          {
+            icon: "fab fa-github",
+            url: "https://github.com/dhikaid",
+            color: "text-gray-700 hover:text-gray-900",
+          },
+          {
+            icon: "fab fa-linkedin",
+            url: "https://www.linkedin.com/in/bhadrika05",
+            color: "text-gray-700 hover:text-blue-600",
+          },
+          {
+            icon: "fas fa-envelope",
+            url: "mailto:me@bhadrikais.my.id",
+            color: "text-gray-700 hover:text-red-500",
+          },
+        ],
+        footerText:
+          "Built with ❤️ by Bhadrika A (2020 - " +
+          new Date().getFullYear() +
+          ")",
+        pageTitle: "Bhadrika Aryaputra - Backend Developer | Portfolio & Links",
+      };
+      // Data konfigurasi yang bisa diedit
+      let config = { ...defaultConfig };
+      // Template untuk elemen-elemen dinamis
+      const templates = {
+        verifiedIcon: (size = "normal") => `
+          <i class="fas fa-check-circle ${
+            size === "normal" ? "verified-icon" : "verified-icon-small"
+          }"></i>
+        `,
+        maintenanceBadge: () => `
+          <div class="maintenance-badge text-xs px-3 py-1.5 rounded-full flex items-center mt-2">
+            <i class="fas fa-tools maintenance-icon mr-1.5"></i>
+            <span class="maintenance-text">Maintenance</span>
+          </div>
+        `,
+        link: (link, index) => `
+          <div class="fade-in" style="animation-delay: ${index * 0.1}s">
+            <a href="${link.maintenance ? "#" : link.url}" class="block group ${
+          link.maintenance ? "cursor-not-allowed" : ""
+        }">
+              <div class="bg-white/80 backdrop-blur-sm rounded-soft-xl p-4 shadow-lg hover-lift border border-white/50 ${
+                link.maintenance ? "link-maintenance opacity-85" : ""
+              } relative">
+                ${
+                  link.maintenance
+                    ? '<div class="maintenance-overlay"></div>'
+                    : ""
+                }
+                ${
+                  link.maintenance
+                    ? '<div class="maintenance-warning"><i class="fas fa-exclamation text-white text-xs"></i></div>'
+                    : ""
+                }
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br ${
+                      link.gradient
+                    } rounded-soft flex items-center justify-center ${
+          link.maintenance ? "opacity-75" : ""
+        }">
+                      <i class="${link.icon} text-white text-base"></i>
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-center">
+                        <h3 class="text-base font-semibold font-poppins text-gray-800 ${
+                          link.maintenance
+                            ? "opacity-80"
+                            : "group-hover:text-blue-600 transition-colors"
+                        }">
+                          ${link.title}
+                        </h3>
+                        ${link.verified ? templates.verifiedIcon("small") : ""}
+                      </div>
+                      <p class="text-xs font-poppins text-gray-500 mt-1 ${
+                        link.maintenance ? "opacity-75" : ""
+                      }">
+                        ${link.description}
+                      </p>
+                      ${link.maintenance ? templates.maintenanceBadge() : ""}
+                    </div>
+                  </div>
+                  ${
+                    !link.maintenance
+                      ? '<i class="fas fa-arrow-right text-gray-400 group-hover:text-blue-600 transition-colors"></i>'
+                      : '<i class="fas fa-lock text-orange-400"></i>'
+                  }
+                </div>
+              </div>
+            </a>
+          </div>
+        `,
+        socialLink: (social, index) => `
+          <a href="${
+            social.url
+          }" class="w-10 h-10 bg-white/50 backdrop-blur-sm rounded-full flex items-center justify-center hover-lift border border-white/30 fade-in" style="animation-delay: ${
+          index * 0.1 + 0.5
+        }s">
+            <i class="${social.icon} ${social.color}"></i>
+          </a>
+        `,
+      };
+      // ==========================================
+      // APPLICATION LAYER - Logika aplikasi
+      // ==========================================
+      const app = {
+        // Inisialisasi aplikasi
+        init() {
+          this.loadFromLocalStorage();
+          this.render(); // Diperbaiki: render() -> this.render()
+        },
+        // Render seluruh aplikasi
+        render() {
+          this.renderProfile();
+          this.renderLinks();
+          this.renderSocialLinks();
+          this.renderFooter();
+          this.updatePageTitle();
+        },
+        // Render profil
+        renderProfile() {
+          document.getElementById("profile-picture").src =
+            config.profile.picture;
+          document.getElementById("profile-name").textContent =
+            config.profile.name;
+          document.getElementById("profile-title").textContent =
+            config.profile.title;
+          // Render verified icon untuk profile
+          const profileVerified = document.getElementById("profile-verified");
+          profileVerified.innerHTML = config.profile.verified
+            ? templates.verifiedIcon("normal")
+            : "";
+        },
+        // Render links
+        renderLinks() {
+          const linksContainer = document.getElementById("links-container");
+          linksContainer.innerHTML = config.links
+            .map((link, index) => templates.link(link, index))
+            .join("");
+        },
+        // Render social links
+        renderSocialLinks() {
+          const socialLinksContainer = document.getElementById("social-links");
+          socialLinksContainer.innerHTML = config.socialLinks
+            .map((social, index) => templates.socialLink(social, index))
+            .join("");
+        },
+        // Render footer
+        renderFooter() {
+          document.getElementById("footer-text").textContent =
+            config.footerText;
+        },
+        // Update page title
+        updatePageTitle() {
+          document.getElementById("page-title").textContent = config.pageTitle;
+        },
+        // Memuat data dari localStorage
+        loadFromLocalStorage() {
+          const saved = localStorage.getItem("linktreeConfig");
+          if (saved) {
+            config = { ...defaultConfig, ...JSON.parse(saved) };
+          }
+        },
+        // Method untuk mengupdate config secara programatik
+        updateConfig(newConfig) {
+          config = { ...config, ...newConfig };
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk menambah link baru secara programatik
+        addLink(newLink) {
+          config.links.push({
+            verified: false,
+            maintenance: false, // Default maintenance: false
+            ...newLink,
+          });
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk menghapus link secara programatik
+        removeLink(index) {
+          config.links.splice(index, 1);
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk menambah social link baru secara programatik
+        addSocialLink(newSocialLink) {
+          config.socialLinks.push(newSocialLink);
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk menghapus social link secara programatik
+        removeSocialLink(index) {
+          config.socialLinks.splice(index, 1);
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk update profile secara programatik
+        updateProfile(profileData) {
+          config.profile = { ...config.profile, ...profileData };
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk mengatur status verified profile
+        setProfileVerified(verified) {
+          config.profile.verified = verified;
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk mengatur status verified link
+        setLinkVerified(index, verified) {
+          if (config.links[index]) {
+            config.links[index].verified = verified;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+        // Method untuk mengatur status maintenance link
+        setLinkMaintenance(index, maintenance) {
+          if (config.links[index]) {
+            config.links[index].maintenance = maintenance;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+        // Method untuk toggle status verified profile
+        toggleProfileVerified() {
+          config.profile.verified = !config.profile.verified;
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk toggle status verified link
+        toggleLinkVerified(index) {
+          if (config.links[index]) {
+            config.links[index].verified = !config.links[index].verified;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+        // Method untuk toggle status maintenance link
+        toggleLinkMaintenance(index) {
+          if (config.links[index]) {
+            config.links[index].maintenance = !config.links[index].maintenance;
+            this.render();
+            this.saveToLocalStorage();
+          }
+        },
+        // Menyimpan data ke localStorage
+        saveToLocalStorage() {
+          localStorage.setItem("linktreeConfig", JSON.stringify(config));
+        },
+        // Method untuk reset ke default
+        resetToDefault() {
+          config = { ...defaultConfig };
+          this.render();
+          this.saveToLocalStorage();
+        },
+        // Method untuk mendapatkan config saat ini
+        getConfig() {
+          return { ...config };
+        },
+      };
+      // ==========================================
+      // INITIALIZATION - Jalankan aplikasi
+      // ==========================================
+      document.addEventListener("DOMContentLoaded", () => {
+        app.init();
       });
+      // ==========================================
+      // PUBLIC API - Untuk manipulasi dari luar
+      // ==========================================
+      window.linktreeApp = {
+        // Update config
+        updateConfig: (newConfig) => app.updateConfig(newConfig),
+        // Profile operations
+        updateProfile: (profileData) => app.updateProfile(profileData),
+        setProfileVerified: (verified) => app.setProfileVerified(verified),
+        toggleProfileVerified: () => app.toggleProfileVerified(),
+        // Link operations
+        addLink: (newLink) => app.addLink(newLink),
+        removeLink: (index) => app.removeLink(index),
+        setLinkVerified: (index, verified) =>
+          app.setLinkVerified(index, verified),
+        toggleLinkVerified: (index) => app.toggleLinkVerified(index),
+        // Maintenance operations
+        setLinkMaintenance: (index, maintenance) =>
+          app.setLinkMaintenance(index, maintenance),
+        toggleLinkMaintenance: (index) => app.toggleLinkMaintenance(index),
+        // Social link operations
+        addSocialLink: (newSocialLink) => app.addSocialLink(newSocialLink),
+        removeSocialLink: (index) => app.removeSocialLink(index),
+        // Utility methods
+        resetToDefault: () => app.resetToDefault(),
+        getConfig: () => app.getConfig(),
+        // Contoh penggunaan:
+        // linktreeApp.setProfileVerified(true);
+        // linktreeApp.setLinkVerified(0, true);
+        // linktreeApp.toggleProfileVerified();
+        // linktreeApp.toggleLinkVerified(1);
+        // linktreeApp.setLinkMaintenance(0, true);
+        // linktreeApp.toggleLinkMaintenance(2);
+        //
+        // linktreeApp.addLink({
+        //   icon: "fab fa-twitter",
+        //   gradient: "from-blue-400 to-blue-600",
+        //   title: "Twitter",
+        //   description: "Follow me",
+        //   url: "https://twitter.com/username",
+        //   verified: true,
+        //   maintenance: false
+        // });
+      };
     </script>
+    <script src="./script.js"></script>
   </body>
 </html>
