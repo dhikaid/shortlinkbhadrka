@@ -3,3 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/bhadrika/public_html/link.domain
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/src/img
+    - /bin/cp src/output.css $DEPLOYPATH/src/output.css
+    - /bin/cp src/main.js $DEPLOYPATH/src/main.js
+    - /bin/cp src/img/* $DEPLOYPATH/src/img/
