@@ -1,0 +1,4 @@
+Contact: mailto:me@bhadrikais.my.id
+Expires: 2027-06-30T23:59:59Z
+Preferred-Languages: id, en
+Canonical: https://link.bhadrikais.my.id/.well-known/security.txt

@@ -82,22 +82,14 @@ const defaultConfig = {
   ],
   socialLinks: [
     {
-      icon: "fab fa-github",
-      url: "https://github.com/dhikaid",
-      label: "GitHub",
-      color: "text-gray-700 hover:text-gray-900",
-    },
-    {
-      icon: "fab fa-linkedin",
-      url: "https://www.linkedin.com/in/bhadrika05",
-      label: "LinkedIn",
-      color: "text-gray-700 hover:text-blue-600",
-    },
-    {
-      icon: "fas fa-envelope",
+      icon: "contact",
       url: "mailto:me@bhadrikais.my.id",
-      label: "Email",
-      color: "text-gray-700 hover:text-red-500",
+      label: "Contact",
+    },
+    {
+      icon: "website",
+      url: "https://web.bhadrikais.my.id",
+      label: "Website",
     },
   ],
   footerText:
@@ -113,6 +105,8 @@ const ICON_BY_CLASS = {
   "fab fa-linkedin": "linkedin",
   "fab fa-instagram": "instagram",
   "fas fa-envelope": "mail",
+  contact: "contact",
+  website: "website",
 };
 
 const LINKS = defaultConfig.links.map((link, index) => ({
@@ -140,6 +134,10 @@ const ICONS = {
   youtube:
     '<path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/>',
   mail: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  contact:
+    '<circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/>',
+  website:
+    '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
   arrow: '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
   lock: '<rect width="16" height="12" x="4" y="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
 };
@@ -247,6 +245,10 @@ function createSocialLink(social) {
   const a = el("a", "pill");
   a.href = social.url;
   a.setAttribute("aria-label", social.label || social.icon);
+  if (/^https?:\/\//.test(social.url)) {
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  }
   a.innerHTML = icon(ICON_BY_CLASS[social.icon] || "arrow");
   a.append(document.createTextNode(social.label));
   return a;

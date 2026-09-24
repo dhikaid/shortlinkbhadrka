@@ -1,0 +1,31 @@
+# Bhadrika Aryaputra — Backend Developer
+
+> Bhadrika Aryaputra is an Indonesian backend developer focused on building scalable, reliable, and maintainable backend systems, APIs, and services.
+
+This site is a public link hub for Bhadrika Aryaputra's backend development work and professional profiles. The information below is limited to publicly available links.
+
+## Contact
+
+- [Website](https://web.bhadrikais.my.id/): Bhadrika's website.
+- [Link hub](https://link.bhadrikais.my.id/): Portfolio and public links.
+- [Email](mailto:me@bhadrikais.my.id): Public contact address.
+
+## Profile
+
+- Role: Backend Developer
+- Focus: APIs, backend systems, clean architecture, performance, and maintainability
+- Canonical website: https://link.bhadrikais.my.id/
+
+## Public Profiles
+
+- [GitHub](https://github.com/dhikaid): Open-source projects and code.
+- [LinkedIn](https://www.linkedin.com/in/bhadrika05): Professional profile.
+- [Instagram](https://www.instagram.com/bhadrika_aryaputra/): Public professional and technology updates.
+
+## Site Files
+
+- [Homepage](https://link.bhadrikais.my.id/): Portfolio and link hub.
+- [Sitemap](https://link.bhadrikais.my.id/sitemap.xml): Indexable URL list.
+- [Robots policy](https://link.bhadrikais.my.id/robots.txt): Crawler policy.
+- [Security contact](https://link.bhadrikais.my.id/.well-known/security.txt): Vulnerability reporting contact.
+- [Full LLM context](https://link.bhadrikais.my.id/llms-full.txt): Expanded public context.

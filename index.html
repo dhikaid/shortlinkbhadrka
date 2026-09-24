@@ -70,6 +70,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Bhadrika Aryaputra" />
     <link rel="canonical" href="https://link.bhadrikais.my.id" />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="https://link.bhadrikais.my.id/llms.txt"
+    />
+    <link rel="describedby" href="https://link.bhadrikais.my.id/llms.txt" />
     <link rel="icon" type="image/png" href="src/img/icons.png" />
     <link rel="apple-touch-icon" href="src/img/icons.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -79,6 +85,23 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/output.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bhadrika Aryaputra",
+        "jobTitle": "Backend Developer",
+        "url": "https://link.bhadrikais.my.id/",
+        "image": "https://link.bhadrikais.my.id/src/img/profile-pp.png",
+        "email": "me@bhadrikais.my.id",
+        "sameAs": [
+          "https://web.bhadrikais.my.id/",
+          "https://github.com/dhikaid",
+          "https://www.linkedin.com/in/bhadrika05",
+          "https://www.instagram.com/bhadrika_aryaputra/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <main class="shell">
@@ -280,9 +303,48 @@
             <nav
               id="social-links"
               class="actions"
-              aria-label="Connect with me"
-              hidden
-            ></nav>
+              aria-label="Contact and website"
+            >
+              <a class="pill" href="mailto:me@bhadrikais.my.id">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
+                </svg>
+                Contact
+              </a>
+              <a
+                class="pill"
+                href="https://web.bhadrikais.my.id"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+                Website
+              </a>
+            </nav>
 
             <p class="kbd-hint">
               Tekan <kbd class="kbd">1</kbd><span aria-hidden="true">–</span
